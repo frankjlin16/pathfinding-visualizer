@@ -1956,7 +1956,7 @@ button,
 	-webkit-transition: background-color 0.2s ease-in-out;
 	-ms-transition: background-color 0.2s ease-in-out;
 	transition: background-color 0.2s ease-in-out;
-	position: relative;
+	position: inherit;
 	display: inline-block;
 	padding: 0.5em 1.5em 0.5em 1.5em;
 	letter-spacing: 0.1em;
@@ -2084,7 +2084,8 @@ button:hover,
 }
 
 #nav > ul > li > a,
-#nav > ul > li > span {
+#nav > ul > li > span,
+#nav > ul > li > div {
 	-moz-transition: background-color 0.2s ease-in-out;
 	-webkit-transition: background-color 0.2s ease-in-out;
 	-ms-transition: background-color 0.2s ease-in-out;
@@ -2100,6 +2101,11 @@ button:hover,
 	color: #ccc;
 	color: rgba(255, 255, 255, 0.75);
 	border-top: 5px solid transparent;
+}
+
+#nav > ul > li > button {
+	margin: 0.75em;
+	margin-top: 1.5em;
 }
 
 #nav li:hover a,
