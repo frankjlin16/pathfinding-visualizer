@@ -18,23 +18,53 @@ function App() {
 							</div>
 						</div>
 
+						<nav id="nav" style={{ backgroundColor: "white" }}>
+							<ul>
+								<li>
+									<div style={{ color: "#2b475d" }}>
+										START NODE <div class="node node-tutorial node-start" />
+									</div>
+								</li>
+								<li>
+									<div style={{ color: "#2b475d" }}>
+										FINISH NODE <div class="node node-tutorial node-finish" />
+									</div>
+								</li>
+								<li>
+									<div style={{ color: "#2b475d" }}>
+										WALL NODE <div class="node node-tutorial node-wall" />
+									</div>
+								</li>
+								<li>
+									<div style={{ color: "#2b475d" }}>
+										VISITED NODE <div class="node node-tutorial node-visited" />
+									</div>
+								</li>
+								<li>
+									<div style={{ color: "#2b475d" }}>
+										PATH NODE <div class="node node-tutorial node-path" />
+									</div>
+								</li>
+							</ul>
+						</nav>
+
 						{/* Nav */}
 						<nav id="nav">
 							<ul>
 								<li>
-									<a href="index.html">START [SELECTED ALOGRITHM]</a>
+									<button href="index.html">START [SELECTED ALOGRITHM]</button>
 								</li>
 								<li>
-									<a href="left-sidebar.html">CLEAR GRID</a>
+									<button href="left-sidebar.html">CLEAR GRID</button>
 								</li>
 								<li>
-									<a href="right-sidebar.html">CLEAR WALLS</a>
+									<button href="right-sidebar.html">CLEAR WALLS</button>
 								</li>
 								<li>
-									<a href="two-sidebar.html">GENERATE MAZE</a>
+									<button href="two-sidebar.html">GENERATE MAZE</button>
 								</li>
 								<li>
-									<a href="two-sidebar.html">SPEED</a>
+									<button href="two-sidebar.html">SPEED</button>
 								</li>
 							</ul>
 						</nav>
@@ -46,49 +76,16 @@ function App() {
 					<Pathfinder />
 				</div>
 
-				{/* Slider */}
-				{/* <div id="slider" class="container">
-					<a href="#">
-						<span class="previous-button icon solid fa-angle-left"></span>
-					</a>
-					<a href="#">
-						<span class="next-button icon solid fa-angle-right"></span>
-					</a>
-					<div class="viewer">
-						<div class="reel">
-							<div class="slide">
-								<span class="pennant">
-									<span class="icon solid fa-rocket"></span>
-								</span>
-								<p>Phasellus ultrices nulla quis nibh. Quisque a lectu. Donec consectetuer ligula et vulputate.</p>
-								<a href="#" class="links">
-									More
-								</a>
-							</div>
-							<div class="slide">
-								<span class="pennant">
-									<span class="icon solid fa-cogs"></span>
-								</span>
-								<p>Etiam neque. Vivamus consequat lorem. Nullam semper eleifend. Donec mattis libero eget urna.</p>
-								<a href="#" class="links">
-									More
-								</a>
-							</div>
-							<div class="slide">
-								<span class="pennant">
-									<span class="icon solid fa-file"></span>
-								</span>
-								<p>Maecenas pede nisl, elementum eu, ornare ac, malesuada at, erat. Proin gravida orci porttitor.</p>
-								<a href="#" class="links">
-									More
-								</a>
-							</div>
-						</div>
-					</div>
-				</div> */}
-
 				{/* Main */}
 				<div id="main" class="container">
+					<div id="intro">
+						<section>
+							<div class="heading">
+								<span class="txt1">Meet the algorithms</span>
+								<span class="txt2">Select any of the algorithms below to get visualizing!</span>
+							</div>
+						</section>
+					</div>
 					<div id="featured">
 						<div class="row gtr-uniform">
 							<section class="col-6 col-12-narrower">
@@ -141,78 +138,7 @@ function App() {
 							</section>
 						</div>
 					</div>
-					{/* <div id="intro">
-						<section>
-							<div class="heading">
-								<span class="txt1">Fusce pellentesque</span>
-								<span class="txt2">Integer vitae libero ac risus egestas placerat</span>
-							</div>
-						</section>
-					</div>
-
-					<div id="extra">
-						<div class="row gtr-200">
-							<section class="col-4 col-12-narrower">
-								<span class="pennant">
-									<span class="icon solid fa-tint"></span>
-								</span>
-								<div class="box">
-									<p>
-										Praesent dapibus, neque id fio intion supendibus, tortor neque egestas augu uspendisse urna vulputate magna eros. Aliquam erat volut enean
-										dignissim pellentesque felis
-									</p>
-								</div>
-								<a href="#" class="link">
-									More Info
-								</a>
-							</section>
-							<section class="col-4 col-12-narrower">
-								<span class="pennant">
-									<span class="icon solid fa-pencil-alt"></span>
-								</span>
-								<div class="box">
-									<p>
-										Donec nec justo eget felis fafermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim arcuat uspendisse urna pellentesqu,
-										tincidunt quis, accumsan porttitor, facilisis
-									</p>
-								</div>
-								<a href="#" class="link">
-									More Info
-								</a>
-							</section>
-							<section class="col-4 col-12-narrower">
-								<span class="pennant">
-									<span class="icon solid fa-user"></span>
-								</span>
-								<div class="box">
-									<p>
-										Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies ciam nibh, viverra non, semper suscipi
-										uspendisse mitind vulputate simpoem
-									</p>
-								</div>
-								<a href="#" class="link">
-									More Info
-								</a>
-							</section>
-						</div>
-					</div> */}
 				</div>
-
-				{/* Newsletter */}
-				{/* <div id="newsletter" class="container">
-					<section>
-						<header>
-							<h2>Morbi insem uisdui</h2>
-							<span class="byline">Vivamus vestibulum nulla nec ante</span>
-						</header>
-						<form method="post" action="#" id="subscribe">
-							<input type="text" class="text" name="search" placeholder="Email address" />
-							<a href="#" class="button">
-								Submit
-							</a>
-						</form>
-					</section>
-				</div> */}
 
 				{/* Footer */}
 				<div id="footer" class="container">
