@@ -4,10 +4,10 @@ import { dijkstra } from "../algorithms/dijkstra";
 
 import "./pathfinder.css";
 
-const START_NODE_ROW = 9;
+const START_NODE_ROW = 12;
 const START_NODE_COLUMN = 4;
-const FINISH_NODE_ROW = 9;
-const FINISH_NODE_COLUMN = 31;
+const FINISH_NODE_ROW = 12;
+const FINISH_NODE_COLUMN = 32;
 
 class Pathfinder extends Component {
 	state = {
@@ -124,9 +124,9 @@ class Pathfinder extends Component {
 
 const createGrid = () => {
 	const grid = [];
-	for (let row = 0; row < 19; ++row) {
+	for (let row = 0; row < 25; ++row) {
 		const currentRow = [];
-		for (let column = 0; column < 36; ++column) {
+		for (let column = 0; column < 37; ++column) {
 			currentRow.push(createNode(row, column));
 		}
 		grid.push(currentRow);
