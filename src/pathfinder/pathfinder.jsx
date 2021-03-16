@@ -7,7 +7,7 @@ import "./pathfinder.css";
 const START_NODE_ROW = 12;
 const START_NODE_COLUMN = 4;
 const FINISH_NODE_ROW = 12;
-const FINISH_NODE_COLUMN = 32;
+const FINISH_NODE_COLUMN = 39;
 
 class Pathfinder extends Component {
 	state = {
@@ -67,7 +67,7 @@ class Pathfinder extends Component {
 			setTimeout(() => {
 				const node = visitedNodes[i];
 				if (document.getElementById(`node-${node.row}-${node.column}`).className === "node")
-					document.getElementById(`node-${node.row}-${node.column}`).className = "node node-visited";
+					document.getElementById(`node-${node.row}-${node.column}`).className = "node visited";
 			}, 5 * i);
 		}
 	}
@@ -76,8 +76,8 @@ class Pathfinder extends Component {
 		for (let i = 0; i < path.length; ++i) {
 			setTimeout(() => {
 				const node = path[i];
-				if (document.getElementById(`node-${node.row}-${node.column}`).className === "node node-visited")
-					document.getElementById(`node-${node.row}-${node.column}`).className = "node node-path";
+				if (document.getElementById(`node-${node.row}-${node.column}`).className === "node visited")
+					document.getElementById(`node-${node.row}-${node.column}`).className = "node path";
 				if (i + 1 === path.length) {
 					this.toggleRunning();
 				}
@@ -89,7 +89,7 @@ class Pathfinder extends Component {
 		const { grid, isMouseDown } = this.state;
 		return (
 			<>
-				{/* <button id="start" style={{ margin: "30px" }} onClick={() => this.visualize()}>
+				{/* <button id="start" onClick={() => this.visualize()}>
 					START
 				</button> */}
 				<div className="grid">
@@ -126,7 +126,7 @@ const createGrid = () => {
 	const grid = [];
 	for (let row = 0; row < 25; ++row) {
 		const currentRow = [];
-		for (let column = 0; column < 37; ++column) {
+		for (let column = 0; column < 44; ++column) {
 			currentRow.push(createNode(row, column));
 		}
 		grid.push(currentRow);
