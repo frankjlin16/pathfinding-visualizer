@@ -1,1 +1,1 @@
-https://polymods.github.io/pathfinding-visualizer/
+DEMO: https://polymods.github.io/pathfinding-visualizer/
