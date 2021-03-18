@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/pathfinding-visualizer/static/css/main.f8fd3397.chunk.css",
-    "main.js": "/pathfinding-visualizer/static/js/main.3d9abff0.chunk.js",
-    "main.js.map": "/pathfinding-visualizer/static/js/main.3d9abff0.chunk.js.map",
+    "main.css": "/pathfinding-visualizer/static/css/main.32820f3c.chunk.css",
+    "main.js": "/pathfinding-visualizer/static/js/main.43761e35.chunk.js",
+    "main.js.map": "/pathfinding-visualizer/static/js/main.43761e35.chunk.js.map",
     "runtime-main.js": "/pathfinding-visualizer/static/js/runtime-main.b6ae0412.js",
     "runtime-main.js.map": "/pathfinding-visualizer/static/js/runtime-main.b6ae0412.js.map",
     "static/css/2.b71ebc9b.chunk.css": "/pathfinding-visualizer/static/css/2.b71ebc9b.chunk.css",
-    "static/js/2.f34ca8be.chunk.js": "/pathfinding-visualizer/static/js/2.f34ca8be.chunk.js",
-    "static/js/2.f34ca8be.chunk.js.map": "/pathfinding-visualizer/static/js/2.f34ca8be.chunk.js.map",
+    "static/js/2.0c6d5b3f.chunk.js": "/pathfinding-visualizer/static/js/2.0c6d5b3f.chunk.js",
+    "static/js/2.0c6d5b3f.chunk.js.map": "/pathfinding-visualizer/static/js/2.0c6d5b3f.chunk.js.map",
     "index.html": "/pathfinding-visualizer/index.html",
-    "precache-manifest.2beb253cccde4aeea25f5891a3efee66.js": "/pathfinding-visualizer/precache-manifest.2beb253cccde4aeea25f5891a3efee66.js",
+    "precache-manifest.d21a10e57646133b7c3ae02cf0f86fc9.js": "/pathfinding-visualizer/precache-manifest.d21a10e57646133b7c3ae02cf0f86fc9.js",
     "service-worker.js": "/pathfinding-visualizer/service-worker.js",
     "static/css/2.b71ebc9b.chunk.css.map": "/pathfinding-visualizer/static/css/2.b71ebc9b.chunk.css.map",
-    "static/css/main.f8fd3397.chunk.css.map": "/pathfinding-visualizer/static/css/main.f8fd3397.chunk.css.map",
-    "static/js/2.f34ca8be.chunk.js.LICENSE.txt": "/pathfinding-visualizer/static/js/2.f34ca8be.chunk.js.LICENSE.txt",
+    "static/css/main.32820f3c.chunk.css.map": "/pathfinding-visualizer/static/css/main.32820f3c.chunk.css.map",
+    "static/js/2.0c6d5b3f.chunk.js.LICENSE.txt": "/pathfinding-visualizer/static/js/2.0c6d5b3f.chunk.js.LICENSE.txt",
     "static/media/AboutUsPage.jpeg": "/pathfinding-visualizer/static/media/AboutUsPage.3722f7e7.jpeg",
     "static/media/AgencyLandingPage.jpeg": "/pathfinding-visualizer/static/media/AgencyLandingPage.df4fcdeb.jpeg",
     "static/media/BlogIndexPage.jpeg": "/pathfinding-visualizer/static/media/BlogIndexPage.7e8818a2.jpeg",
@@ -96,10 +96,6 @@
     "static/media/svg-decorator-blob-9.06b7e929.svg": "/pathfinding-visualizer/static/media/svg-decorator-blob-9.06b7e929.svg",
     "static/media/tag.svg": "/pathfinding-visualizer/static/media/tag.9317bc9d.svg",
     "static/media/team-illustration-2.svg": "/pathfinding-visualizer/static/media/team-illustration-2.5ae3fe7a.svg",
-    "static/media/test.svg": "/pathfinding-visualizer/static/media/test.25cd10ec.svg",
-    "static/media/test2.svg": "/pathfinding-visualizer/static/media/test2.1a235576.svg",
-    "static/media/test3.svg": "/pathfinding-visualizer/static/media/test3.03097ac8.svg",
-    "static/media/test4.svg": "/pathfinding-visualizer/static/media/test4.0fcb0e75.svg",
     "static/media/trending-up.svg": "/pathfinding-visualizer/static/media/trending-up.4e2c0a1d.svg",
     "static/media/twitter-icon.7189052c.svg": "/pathfinding-visualizer/static/media/twitter-icon.7189052c.svg",
     "static/media/user-plus.svg": "/pathfinding-visualizer/static/media/user-plus.5047d004.svg",
@@ -110,8 +106,8 @@
   "entrypoints": [
     "static/js/runtime-main.b6ae0412.js",
     "static/css/2.b71ebc9b.chunk.css",
-    "static/js/2.f34ca8be.chunk.js",
-    "static/css/main.f8fd3397.chunk.css",
-    "static/js/main.3d9abff0.chunk.js"
+    "static/js/2.0c6d5b3f.chunk.js",
+    "static/css/main.32820f3c.chunk.css",
+    "static/js/main.43761e35.chunk.js"
   ]
 }

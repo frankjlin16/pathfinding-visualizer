@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9f54aa0a4b51c549b0340fdfda3861bb",
+    "revision": "b5569edf4c769a44920851ca1b96d8e7",
     "url": "/pathfinding-visualizer/index.html"
   },
   {
-    "revision": "f756a3de2110cc183a18",
+    "revision": "d8f07c89b8d2af3a39e9",
     "url": "/pathfinding-visualizer/static/css/2.b71ebc9b.chunk.css"
   },
   {
-    "revision": "83fc574d7544b0d43332",
-    "url": "/pathfinding-visualizer/static/css/main.f8fd3397.chunk.css"
+    "revision": "f6d9b58282afefbe9e69",
+    "url": "/pathfinding-visualizer/static/css/main.32820f3c.chunk.css"
   },
   {
-    "revision": "f756a3de2110cc183a18",
-    "url": "/pathfinding-visualizer/static/js/2.f34ca8be.chunk.js"
+    "revision": "d8f07c89b8d2af3a39e9",
+    "url": "/pathfinding-visualizer/static/js/2.0c6d5b3f.chunk.js"
   },
   {
     "revision": "075a42bc2d216ac8a5ce44c3760f6c92",
-    "url": "/pathfinding-visualizer/static/js/2.f34ca8be.chunk.js.LICENSE.txt"
+    "url": "/pathfinding-visualizer/static/js/2.0c6d5b3f.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "83fc574d7544b0d43332",
-    "url": "/pathfinding-visualizer/static/js/main.3d9abff0.chunk.js"
+    "revision": "f6d9b58282afefbe9e69",
+    "url": "/pathfinding-visualizer/static/js/main.43761e35.chunk.js"
   },
   {
     "revision": "a2b7021554e2339a14f1",
@@ -354,22 +354,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "5ae3fe7a0d10e5c14ec0575db276dcda",
     "url": "/pathfinding-visualizer/static/media/team-illustration-2.5ae3fe7a.svg"
-  },
-  {
-    "revision": "25cd10ec31578a3c11b1abc801c8cdb9",
-    "url": "/pathfinding-visualizer/static/media/test.25cd10ec.svg"
-  },
-  {
-    "revision": "1a235576438e06be108174c8f8500433",
-    "url": "/pathfinding-visualizer/static/media/test2.1a235576.svg"
-  },
-  {
-    "revision": "03097ac8c0042bb78bde3273253ba2e3",
-    "url": "/pathfinding-visualizer/static/media/test3.03097ac8.svg"
-  },
-  {
-    "revision": "0fcb0e75d8505326df0fe0b1731af7d8",
-    "url": "/pathfinding-visualizer/static/media/test4.0fcb0e75.svg"
   },
   {
     "revision": "4e2c0a1d4a1adb1a99a69310e06fbbc7",
