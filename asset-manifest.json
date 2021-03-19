@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/pathfinding-visualizer/static/css/main.32820f3c.chunk.css",
-    "main.js": "/pathfinding-visualizer/static/js/main.43761e35.chunk.js",
-    "main.js.map": "/pathfinding-visualizer/static/js/main.43761e35.chunk.js.map",
+    "main.js": "/pathfinding-visualizer/static/js/main.b45d9271.chunk.js",
+    "main.js.map": "/pathfinding-visualizer/static/js/main.b45d9271.chunk.js.map",
     "runtime-main.js": "/pathfinding-visualizer/static/js/runtime-main.b6ae0412.js",
     "runtime-main.js.map": "/pathfinding-visualizer/static/js/runtime-main.b6ae0412.js.map",
     "static/css/2.b71ebc9b.chunk.css": "/pathfinding-visualizer/static/css/2.b71ebc9b.chunk.css",
-    "static/js/2.0c6d5b3f.chunk.js": "/pathfinding-visualizer/static/js/2.0c6d5b3f.chunk.js",
-    "static/js/2.0c6d5b3f.chunk.js.map": "/pathfinding-visualizer/static/js/2.0c6d5b3f.chunk.js.map",
+    "static/js/2.36b572e4.chunk.js": "/pathfinding-visualizer/static/js/2.36b572e4.chunk.js",
+    "static/js/2.36b572e4.chunk.js.map": "/pathfinding-visualizer/static/js/2.36b572e4.chunk.js.map",
     "index.html": "/pathfinding-visualizer/index.html",
-    "precache-manifest.d21a10e57646133b7c3ae02cf0f86fc9.js": "/pathfinding-visualizer/precache-manifest.d21a10e57646133b7c3ae02cf0f86fc9.js",
+    "precache-manifest.51803b698ad40174b33eed47dba95ad6.js": "/pathfinding-visualizer/precache-manifest.51803b698ad40174b33eed47dba95ad6.js",
     "service-worker.js": "/pathfinding-visualizer/service-worker.js",
     "static/css/2.b71ebc9b.chunk.css.map": "/pathfinding-visualizer/static/css/2.b71ebc9b.chunk.css.map",
     "static/css/main.32820f3c.chunk.css.map": "/pathfinding-visualizer/static/css/main.32820f3c.chunk.css.map",
-    "static/js/2.0c6d5b3f.chunk.js.LICENSE.txt": "/pathfinding-visualizer/static/js/2.0c6d5b3f.chunk.js.LICENSE.txt",
+    "static/js/2.36b572e4.chunk.js.LICENSE.txt": "/pathfinding-visualizer/static/js/2.36b572e4.chunk.js.LICENSE.txt",
     "static/media/AboutUsPage.jpeg": "/pathfinding-visualizer/static/media/AboutUsPage.3722f7e7.jpeg",
     "static/media/AgencyLandingPage.jpeg": "/pathfinding-visualizer/static/media/AgencyLandingPage.df4fcdeb.jpeg",
     "static/media/BlogIndexPage.jpeg": "/pathfinding-visualizer/static/media/BlogIndexPage.7e8818a2.jpeg",
@@ -106,8 +106,8 @@
   "entrypoints": [
     "static/js/runtime-main.b6ae0412.js",
     "static/css/2.b71ebc9b.chunk.css",
-    "static/js/2.0c6d5b3f.chunk.js",
+    "static/js/2.36b572e4.chunk.js",
     "static/css/main.32820f3c.chunk.css",
-    "static/js/main.43761e35.chunk.js"
+    "static/js/main.b45d9271.chunk.js"
   ]
 }
