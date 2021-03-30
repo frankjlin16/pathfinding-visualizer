@@ -1,42 +1,56 @@
 {
-	"name": "pathfinding-visualizer",
-	"version": "0.1.0",
-	"private": true,
-	"homepage": "https://polymods.github.io/pathfinding-visualizer",
-	"dependencies": {
-		"@testing-library/jest-dom": "^5.11.9",
-		"@testing-library/react": "^11.2.5",
-		"@testing-library/user-event": "^12.7.1",
-		"gh-pages": "^3.1.0",
-		"react": "^17.0.1",
-		"react-dom": "^17.0.1",
-		"react-scripts": "4.0.2",
-		"web-vitals": "^1.1.0"
-	},
-	"scripts": {
-		"predeploy": "npm run build",
-		"deploy": "gh-pages -d build",
-		"start": "react-scripts start",
-		"build": "react-scripts build",
-		"test": "react-scripts test",
-		"eject": "react-scripts eject"
-	},
-	"eslintConfig": {
-		"extends": [
-			"react-app",
-			"react-app/jest"
-		]
-	},
-	"browserslist": {
-		"production": [
-			">0.2%",
-			"not dead",
-			"not op_mini all"
-		],
-		"development": [
-			"last 1 chrome version",
-			"last 1 firefox version",
-			"last 1 safari version"
-		]
-	}
+  "name": "pathfinding-visualizer",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "https://polymods.github.io/pathfinding-visualizer",
+  "dependencies": {
+    "@fortawesome/free-brands-svg-icons": "^5.15.3",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "@fortawesome/react-fontawesome": "^0.1.14",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "feather-icons": "^4.28.0",
+    "framer-motion": "^1.11.1",
+    "react": "^16.13.1",
+    "react-anchor-link-smooth-scroll": "^1.0.12",
+    "react-dom": "^16.13.1",
+    "react-modal": "^3.12.1",
+    "react-rnd": "^10.1.9",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.4.1",
+    "react-slick": "^0.25.2",
+    "slick-carousel": "^1.8.1",
+    "styled-components": "^5.2.1",
+    "tailwindcss": "^1.9.6",
+    "twin.macro": "^1.12.1",
+    "use-in-view": "^1.0.15"
+  },
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "gh-pages": "^3.1.0",
+    "postcss": "^7.0.35"
+  }
 }
