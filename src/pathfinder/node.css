@@ -1,33 +1,27 @@
 .node {
-	display: inline-block;
-	height: 25px;
-	margin-left: 1px;
-	margin-top: 1px;
-	outline: 1px solid white;
-	width: 25px;
+  background-color: white;
+  border: 1px solid #e9d8fd;
+  display: inline-block;
+  height: 40px;
+  width: 40px;
 }
 
 .node.start {
-	background-color: red;
+  background-color: red;
 }
 
 .node.finish {
-	background-color: green;
+  background-color: green;
 }
 
 .node.wall {
-	background-color: black;
+  background-color: black;
 }
 
 .node.visited {
-	background-color: blue;
+  background-color: blue;
 }
 
 .node.path {
-	background-color: yellow;
-}
-
-.node.tutorial {
-	margin: auto;
-	vertical-align: middle;
+  background-color: yellow;
 }
