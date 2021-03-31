@@ -99,6 +99,7 @@ class Pathfinder extends Component {
     description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
   ) {
     const tutorial = { marginRight: "1rem", minWidth: desiredSize + "px" };
+    const unvisited = { marginRight: "1rem", minWidth: desiredSize + "px", backgroundColor: "white" };
     const { grid } = this.state;
     return (
       <>
@@ -127,7 +128,7 @@ class Pathfinder extends Component {
                       WALL NODE
                     </LegendNode>
                     <LegendNode>
-                      <Node style={tutorial}></Node>
+                      <Node style={unvisited}></Node>
                       UNVISITED NODE
                     </LegendNode>
                     <LegendNode>
