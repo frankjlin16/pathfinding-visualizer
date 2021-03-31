@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/pathfinding-visualizer/static/css/main.c63054b7.chunk.css",
-    "main.js": "/pathfinding-visualizer/static/js/main.c5a163b3.chunk.js",
-    "main.js.map": "/pathfinding-visualizer/static/js/main.c5a163b3.chunk.js.map",
+    "main.css": "/pathfinding-visualizer/static/css/main.64dfb5a8.chunk.css",
+    "main.js": "/pathfinding-visualizer/static/js/main.9c4ba55a.chunk.js",
+    "main.js.map": "/pathfinding-visualizer/static/js/main.9c4ba55a.chunk.js.map",
     "runtime-main.js": "/pathfinding-visualizer/static/js/runtime-main.b6ae0412.js",
     "runtime-main.js.map": "/pathfinding-visualizer/static/js/runtime-main.b6ae0412.js.map",
     "static/css/2.735da23c.chunk.css": "/pathfinding-visualizer/static/css/2.735da23c.chunk.css",
     "static/js/2.defd1e3d.chunk.js": "/pathfinding-visualizer/static/js/2.defd1e3d.chunk.js",
     "static/js/2.defd1e3d.chunk.js.map": "/pathfinding-visualizer/static/js/2.defd1e3d.chunk.js.map",
     "index.html": "/pathfinding-visualizer/index.html",
-    "precache-manifest.9f7eb704695a06221924032fcb929224.js": "/pathfinding-visualizer/precache-manifest.9f7eb704695a06221924032fcb929224.js",
+    "precache-manifest.a4e8983e5af2abebcf97f2a63e1001ec.js": "/pathfinding-visualizer/precache-manifest.a4e8983e5af2abebcf97f2a63e1001ec.js",
     "service-worker.js": "/pathfinding-visualizer/service-worker.js",
     "static/css/2.735da23c.chunk.css.map": "/pathfinding-visualizer/static/css/2.735da23c.chunk.css.map",
-    "static/css/main.c63054b7.chunk.css.map": "/pathfinding-visualizer/static/css/main.c63054b7.chunk.css.map",
+    "static/css/main.64dfb5a8.chunk.css.map": "/pathfinding-visualizer/static/css/main.64dfb5a8.chunk.css.map",
     "static/js/2.defd1e3d.chunk.js.LICENSE.txt": "/pathfinding-visualizer/static/js/2.defd1e3d.chunk.js.LICENSE.txt",
     "static/media/svg-decorator-blob-6.5b0723ee.svg": "/pathfinding-visualizer/static/media/svg-decorator-blob-6.5b0723ee.svg",
     "static/media/svg-decorator-blob-7.c86fb21a.svg": "/pathfinding-visualizer/static/media/svg-decorator-blob-7.c86fb21a.svg",
@@ -22,7 +22,7 @@
     "static/js/runtime-main.b6ae0412.js",
     "static/css/2.735da23c.chunk.css",
     "static/js/2.defd1e3d.chunk.js",
-    "static/css/main.c63054b7.chunk.css",
-    "static/js/main.c5a163b3.chunk.js"
+    "static/css/main.64dfb5a8.chunk.css",
+    "static/js/main.9c4ba55a.chunk.js"
   ]
 }
