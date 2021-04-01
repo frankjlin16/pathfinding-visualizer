@@ -2,7 +2,7 @@
   "name": "pathfinding-visualizer",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://polymods.github.io/pathfinding-visualizer",
+  "homepage": "https://www.pathfinder.page",
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^5.15.3",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
