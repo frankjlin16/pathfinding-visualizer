@@ -1,26 +1,26 @@
 .node {
-  border: 1px solid #e9d8fd;
-  display: inline-block;
-  height: 40px;
-  width: 40px;
+	border: 1px solid #e9d8fd;
+	display: inline-block;
+	height: 40px;
+	width: 40px;
 }
 
 .node.start {
-  background-color: red;
+	background-color: #f56565;
 }
 
 .node.finish {
-  background-color: green;
+	background-color: #48bb78;
 }
 
 .node.wall {
-  background-color: black;
+	background-color: #243e63;
 }
 
 .node.visited {
-  background-color: blue;
+	background-color: #4299e1;
 }
 
 .node.path {
-  background-color: yellow;
+	background-color: #ecc94b;
 }
