@@ -1,0 +1,2 @@
+@import url(https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap);.grid{font-size:0}.grid,.node{border:1px solid #e9d8fd}.node{display:inline-block;height:40px;width:40px}.node.start{background-color:#f56565}.node.finish{background-color:#48bb78}.node.wall{background-color:#243e63}.node.visited{background-color:#4299e1}.node.path{background-color:#ecc94b}
+/*# sourceMappingURL=main.f8e97472.chunk.css.map */
