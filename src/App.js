@@ -8,13 +8,13 @@ import Pathfinder from "pathfinder/Pathfinder";
 import React from "react";
 
 function App() {
-  return (
-    <AnimationRevealPage disabled>
-      <Header />
-      <Pathfinder />
-      <Footer />
-    </AnimationRevealPage>
-  );
+	return (
+		<AnimationRevealPage disabled>
+			<Header />
+			<Pathfinder />
+			<Footer />
+		</AnimationRevealPage>
+	);
 }
 
 export default App;
