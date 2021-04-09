@@ -24,7 +24,7 @@ description
 
 description
 
-### A* search algorthm
+### A* search algorithm
 
 description
 
