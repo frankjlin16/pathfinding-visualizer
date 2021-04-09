@@ -1,7 +1,7 @@
 # Pathfinding Visualizer
 
-<img alt="GitHub" src="https://img.shields.io/github/license/polymods/pathfinding-visualizer">
-.. image:: https://img.shields.io/website?url=https%3A%2F%2Fwww.pathfinder.page   :alt: Website
+![GitHub](https://img.shields.io/github/license/polymods/pathfinding-visualizer)
+![Website](https://img.shields.io/website?url=https%3A%2F%2Fwww.pathfinder.page)
 
 Welcome to my pathfinding visualizer! I built this web-app because I was curious how map applications worked and wanted to visualize their algorithms. In essence, a pathfinding algorithm seeks to find the shortest path between two points, and this web-app is capable of visualizing multiple algorithms. Additionally, this visualizer can recursively generate maze structures which creates navigational obstacles for the pathfinding algorithms, effectively simulating a map application navigating the obstacles of a complex highway system or a puzzling urban sprawl.
 
