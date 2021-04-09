@@ -5,6 +5,7 @@
 <a href="https://yarn.pm/thelounge"><img
 		alt="npm version"
 		src="https://img.shields.io/npm/v/thelounge.svg?colorA=333a41&maxAge=3600"></a>
+		[![lterm](https://img.shields.io/badge/website-live-brightgreen.svg?style=flat-square)](https://pathfinder.page)
 
 Welcome to my pathfinding visualizer! I built this web-app because I was curious how map applications worked and wanted to visualize their algorithms. In essence, a pathfinding algorithm seeks to find the shortest path between two points, and this web-app is capable of visualizing multiple algorithms. Additionally, this visualizer can recursively generate maze structures which creates navigational obstacles for the pathfinding algorithms, effectively simulating a map application navigating the obstacles of a complex highway system or a puzzling urban sprawl.
 
