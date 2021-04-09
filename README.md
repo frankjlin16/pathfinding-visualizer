@@ -1,6 +1,7 @@
 # Pathfinding Visualizer
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+<img src="https://img.shields.io/badge/React%20Js-v17.0.1-61dafb" />
 
 Welcome to my pathfinding visualizer! I built this web-app because I was curious how map applications worked and wanted to visualize their algorithms. In essence, a pathfinding algorithm seeks to find the shortest path between two points, and this web-app is capable of visualizing multiple algorithms. Additionally, this visualizer can recursively generate maze structures which creates navigational obstacles for the pathfinding algorithms, effectively simulating a map application navigating the obstacles of a complex highway system or a puzzling urban sprawl.
 
@@ -28,6 +29,10 @@ description
 
 description
 
+## How To Use
+
+description
+
 ## Acknowledgements
 
 * [iconmonstr](https://iconmonstr.com)
@@ -41,15 +46,3 @@ This software uses the following open source packages:
 * Item 3
 * Item 4
 * Item 5
-
-## License
-
-MIT License
-
-Copyright (c) 2021 Alek Broman
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
