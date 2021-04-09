@@ -8,21 +8,26 @@ Welcome to my pathfinding visualizer! I built this web-app because I was curious
 
 * Item 1
 * Item 2
-  * Item 2a
-  * Item 2b
+* Item 3
+* Item 4
+* Item 5
 
 ## Algorithms
 
-Overview of alogirthms
+All of the algorithms on this visualizer are adapted to a two-dimensional grid, where ninety degree turns and movements from one node to another have a cost of one. Furthermore, algorithms are either weighted or unweighted, and this weightedness dictates consideration of the afore mentioned costs. What’s more, not all algorithms guarantee the shortest path, so be sure to read their respective descriptions to understand capabilities.
 
 ### Depth-first search
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+description
 
 ### Dijkstra's algorithm
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+description
 
 ### A* search algorthm
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+description
+
+## License
+
+description
