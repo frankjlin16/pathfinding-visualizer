@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "pathfinder/logo.png";
+import logo from "pathfinder/images/logo.png";
 import styled from "styled-components";
 import tw from "twin.macro";
 import { Container as ContainerBase } from "components/misc/Layouts.js";
