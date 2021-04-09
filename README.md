@@ -6,19 +6,10 @@ Welcome to my pathfinding visualizer! I built this web-app because I was curious
 
 ## Features
 
-Overview of features
-
-### One
-
-1
-
-### Two
-
-2
-
-### Three
-
-3
+* Item 1
+* Item 2
+  * Item 2a
+  * Item 2b
 
 ## Algorithms
 
