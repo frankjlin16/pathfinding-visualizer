@@ -1,6 +1,8 @@
 import "./Pathfinder.css";
 
-import CustomizeIconImage from "images/customize-icon.svg";
+import mapIcon1 from "pathfinder/images/map-1-icon.svg";
+import mapIcon2 from "pathfinder/images/map-2-icon.svg";
+import mapIcon3 from "pathfinder/images/map-3-icon.svg";
 import styled from "styled-components";
 import tw from "twin.macro";
 import React, { Component } from "react";
@@ -10,7 +12,7 @@ import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
 import { SectionDescription } from "components/misc/Typography.js";
 import { SectionHeading, Subheading as SubheadingBase } from "components/misc/Headings.js";
 import { ReactComponent as SvgDecoratorBlob1 } from "images/svg-decorator-blob-7.svg";
-import { ReactComponent as SvgDecoratorBlob2 } from "images/svg-decorator-blob-10.svg";
+import { ReactComponent as SvgDecoratorBlob2 } from "images/svg-decorator-blob-8.svg";
 import { ReactComponent as SvgDecoratorCircle } from "images/svg-decorator-blob-9.svg";
 import { css } from "styled-components/macro"; //eslint-disable-line
 
@@ -133,28 +135,26 @@ class Pathfinder extends Component {
 
 	render(
 		subheading = "Tutorial",
-		tutorialDescription = "All of the algorithms on this web-app are adapted for a 2D grid, where 90 degree turns have a cost of 1 and movements from a node to another have a cost of 1. Refer to the legend below to understand a particular nodes state.",
+		tutorialDescription = "Before beginning, read about the different algorithms at the bottom of the page and decide which you want to use, then select the START button. When visualizing, refer to the legend below to understand any particular node’s state.",
 		heading = "Meet the algorithms.",
-		algorithmsDescription = "Some algorithms are unweighted, while others are weighted. Unweighted algorithms do not take turns into account, whereas weighted ones do. Additionally, not all algorithms guarantee the shortest path. Select an algorithm below and begin visualizing!",
+		algorithmsDescription = "All of the algorithms on this visualizer are adapted to a two-dimensional grid, where ninety degree turns and movements from one node to another have a cost of one. Furthermore, algorithms are either weighted or unweighted, and this weightedness dictates consideration of the afore mentioned costs. What’s more, not all algorithms guarantee the shortest path, so be sure to read their respective descriptions to understand capabilities. Select an algorithm below and get visualizing!",
 		cards = [
 			{
-				imageSrc: CustomizeIconImage,
+				imageSrc: mapIcon1,
+				title: "Depth-first search",
+				description: "",
+				url: "",
+			},
+			{
+				imageSrc: mapIcon2,
 				title: "Dijkstra’s algorithm",
-				description:
-					"The father of pathfinding algorithms, it creates a tree of shortest paths from the starting vertex, the source, to all other points in the graph. Guarantees the shortest path!",
+				description: "",
 				url: "",
 			},
 			{
-				imageSrc: CustomizeIconImage,
+				imageSrc: mapIcon3,
 				title: "A* search algorithm",
-				description: "One of the best and a popular technique used in pathfinding and graph traversals with heuristic. Guarantees the shortest path!",
-				url: "",
-			},
-			{
-				imageSrc: CustomizeIconImage,
-				title: "Breadth-first search",
-				description:
-					"Starts at the tree root and explores all of the neighbor nodes at the present depth prior to moving on to the nodes at the next depth level. Guarantees the shortest path!",
+				description: "",
 				url: "",
 			},
 		],
