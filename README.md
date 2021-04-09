@@ -36,7 +36,7 @@ description
 
 This software uses the following open source packages:
 
-* Item 1
+* Node.js
 * Item 2
 * Item 3
 * Item 4
