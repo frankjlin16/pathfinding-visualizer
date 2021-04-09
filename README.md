@@ -1,6 +1,6 @@
 # Pathfinding Visualizer
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+https://img.shields.io/github/license/polymods/pathfinding-visualizer
 <img src="https://img.shields.io/badge/React%20Js-v16.13.1-61dafb" />
 <a href="https://yarn.pm/thelounge"><img
 		alt="npm version"
