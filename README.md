@@ -32,6 +32,16 @@ description
 
 * [iconmonstr](https://iconmonstr.com)
 
+## Credits
+
+This software uses the following open source packages:
+
+* Item 1
+* Item 2
+* Item 3
+* Item 4
+* Item 5
+
 ## License
 
 description
