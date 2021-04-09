@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "pathfinder/logo.png";
+import logo from "pathfinder/images/logo.png";
 import styled from "styled-components";
 import tw from "twin.macro";
 import { Container, ContentWithPaddingXl } from "components/misc/Layouts.js";
@@ -20,7 +20,7 @@ const DecoratorBlob = styled(SvgDecoratorBlob)`
 export default ({
 	heading = "Pathfinding Visualizer",
 	subheading = "by Alek Broman | 0.1.1",
-	description = "This is a visualizer for multiple pathfinding algorithms. A pathfinding algorithm seeks to find the shortest path between two points. Continue to the tutorial below to begin visualizing!",
+	description = "This is a visualizer for multiple pathfinding algorithms. In essence, a pathfinding algorithm seeks to find the shortest path between two points. Additionally, this visualizer can recursively generate maze structures which creates navigational obstacles for the pathfinding algorithms, effectively simulating a map application navigating the obstacles of a complex highway system or a puzzling urban sprawl.",
 }) => {
 	return (
 		<Container>
