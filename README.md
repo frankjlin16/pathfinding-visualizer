@@ -30,7 +30,7 @@ description
 
 * [Treact](https://treact.owaiskhan.me) by Owais Khan
 * [Twin](https://github.com/ben-rogerson/twin.macro) by Ben Rogerson
-* [iconmonstr](https://iconmonstr.com)
+* [iconmonstr](https://iconmonstr.com) by Alexander Kahlkopf
 
 ## License
 
