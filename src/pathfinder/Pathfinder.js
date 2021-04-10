@@ -138,7 +138,7 @@ class Pathfinder extends Component {
 
 	render(
 		subheading = "Tutorial",
-		tutorialDescription = "Before beginning, read about the different algorithms at the bottom of the page and decide which you want to use, then select its respective button to start visualizing. During use, refer to the legend below to understand any particular node’s state.",
+		tutorialDescription = "Before beginning, drag-and-drop the start and finish nodes to your desired location and create walls by selecting any nodes on the grid. After, read about the different algorithms at the bottom of the page and decide which you want to use, then select its respective button to start visualizing. During use, refer to the legend below to understand any particular node’s state.",
 		heading = "Meet the algorithms.",
 		algorithmsDescription = "All the algorithms on this visualizer are adapted to a two-dimensional grid, where ninety degree turns and movements from one node to another have a calculated cost of one. Furthermore, algorithms are either weighted or unweighted, and their weightedness dictates consideration of the afore mentioned cost calculations. What’s more, not all algorithms guarantee the shortest path, so be sure to read their descriptions to understand capabilities.",
 		cards = [
@@ -163,7 +163,7 @@ class Pathfinder extends Component {
 				title: "A* search",
 				description:
 					"A* (A-star) search is weighted and guarantees the shortest path. Like Dijkstra’s algorithm, A* constructs a lowest-cost path tree. However, A* uses heuristics that reduce computation time by planning each step with informed decisions.",
-				funFact: "Fun fact: Google Maps uses an A* search coupled with collections of highly complex heuristics.",
+				funFact: "Fun fact: Google Maps uses an A* search coupled with collections of highly advanced heuristics.",
 				url: "https://en.wikipedia.org/wiki/A*_search_algorithm",
 			},
 		],
