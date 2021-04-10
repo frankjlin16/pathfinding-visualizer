@@ -1,6 +1,10 @@
 # Pathfinding Visualizer
 
-Welcome to my pathfinding visualizer! I built this web-app because I was curious how map applications worked and wanted to visualize their algorithms. In essence, a pathfinding algorithm seeks to find the shortest path between two points, and this web-app is capable of visualizing multiple algorithms. Additionally, this visualizer can recursively generate maze structures which creates navigational obstacles for the pathfinding algorithms, effectively simulating a map application navigating the obstacles of a complex highway system or a puzzling urban sprawl.
+This is a visualizer for multiple pathfinding algorithms. In essence, a pathfinding algorithm seeks to find the shortest path between two points. Additionally, this visualizer can recursively generate maze structures which creates navigational obstacles for the pathfinding algorithms, effectively simulating a map application navigating the obstacles of a complex highway system or a puzzling urban sprawl.
+
+## Motivation
+
+I built this web-app because I was curious how map applications worked and wanted to visualize their algorithms. Also, this project was partially inspired by Clément Mihailescu’s informative and entertaining [YouTube](https://www.youtube.com/channel/UCaO6VoaYJv4kS-TQO_M-N_g) videos.
 
 ## Features
 
