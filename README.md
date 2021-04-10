@@ -28,8 +28,8 @@ description
 
 ## Acknowledgements
 
-* [Treact](https://treact.owaiskhan.me)
-* [Twin](https://github.com/ben-rogerson/twin.macro)
+* [Treact](https://treact.owaiskhan.me) by Owais Khan
+* [Twin](https://github.com/ben-rogerson/twin.macro) by Ben Rogerson
 * [iconmonstr](https://iconmonstr.com)
 
 ## License
