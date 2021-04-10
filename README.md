@@ -33,6 +33,8 @@ description
 ## Acknowledgements
 
 * [iconmonstr](https://iconmonstr.com)
+* wiki entreis
+* treact
 
 ## Credits
 
