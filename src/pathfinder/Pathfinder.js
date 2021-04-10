@@ -39,7 +39,7 @@ const DecoratorCircle2 = tw(SvgDecoratorCircle)`absolute top-0 right-0 w-80 h-80
 
 // Actions
 const ActionsBackgroundContainer = tw(PrimaryBackgroundContainer)`rounded-b-lg`;
-const ButtonsContainer = tw.div`grid sm:grid-rows-2 sm:grid-cols-2 lg:grid-rows-1 lg:grid-cols-4 gap-x-8 gap-y-8 justify-center lg:justify-end`;
+const ButtonsContainer = tw.div`grid sm:grid-rows-2 sm:grid-cols-2 lg:grid-rows-2 lg:grid-cols-3 gap-x-8 gap-y-8 justify-center lg:justify-end`;
 const Button = tw(
 	PrimaryButtonBase
 )`w-full lg:w-auto text-sm sm:text-base px-6 py-3 sm:px-8 sm:py-4 lg:px-10 lg:py-5 rounded font-bold border border-transparent tracking-wide transition duration-300 focus:outline-none focus:shadow-outline`;
@@ -70,6 +70,9 @@ const Card = styled.a`
 	}
 	.description {
 		${tw`mt-4 text-sm font-medium text-secondary-100`}
+	}
+	.funFact {
+		${tw`mt-4 text-sm font-medium text-secondary-100 italic`}
 	}
 	.link {
 		${tw`mt-auto inline-flex items-center pt-5 text-sm font-bold text-primary-300 leading-none hocus:text-primary-900 transition duration-300`}
@@ -135,32 +138,38 @@ class Pathfinder extends Component {
 
 	render(
 		subheading = "Tutorial",
-		tutorialDescription = "Before beginning, read about the different algorithms at the bottom of the page and decide which you want to use, then select the START button. When visualizing, refer to the legend below to understand any particular node’s state.",
+		tutorialDescription = "Before beginning, read about the different algorithms at the bottom of the page and decide which you want to use, then select its respective button to start visualizing. During use, refer to the legend below to understand any particular node’s state.",
 		heading = "Meet the algorithms.",
-		algorithmsDescription = "All of the algorithms on this visualizer are adapted to a two-dimensional grid, where ninety degree turns and movements from one node to another have a cost of one. Furthermore, algorithms are either weighted or unweighted, and this weightedness dictates consideration of the afore mentioned costs. What’s more, not all algorithms guarantee the shortest path, so be sure to read their respective descriptions to understand capabilities. Select an algorithm below and get visualizing!",
+		algorithmsDescription = "All the algorithms on this visualizer are adapted to a two-dimensional grid, where ninety degree turns and movements from one node to another have a calculated cost of one. Furthermore, algorithms are either weighted or unweighted, and their weightedness dictates consideration of the afore mentioned cost calculations. What’s more, not all algorithms guarantee the shortest path, so be sure to read their descriptions to understand capabilities.",
 		cards = [
 			{
 				imageSrc: mapIcon1,
 				title: "Depth-first search",
-				description: "",
-				url: "",
+				description:
+					"Depth-first search is unweighted and does not guarantee the shortest path. This algorithm works by beginning at the start node and exploring as far as possible along a given path and then backtracking until it finds an unexplored path to be explored.",
+				funFact: "Fun fact: Depth-first search rarely returns the shortest path and is dreadfully inefficient at pathfinding!",
+				url: "https://en.wikipedia.org/wiki/Depth-first_search",
 			},
 			{
 				imageSrc: mapIcon2,
 				title: "Dijkstra’s algorithm",
-				description: "",
-				url: "",
+				description:
+					"Dijkstra’s algorithm is weighted and guarantees the shortest path. This algorithm works by constructing a lowest-cost path tree through building a set of nodes that have the smallest distance from the start node to the finish node.",
+				funFact: "Fun fact: Edsger Dijkstra invented his famous algorithm in roughly twenty minutes at a café.",
+				url: "https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm",
 			},
 			{
 				imageSrc: mapIcon3,
-				title: "A* search algorithm",
-				description: "",
-				url: "",
+				title: "A* search",
+				description:
+					"A* (A-star) search is weighted and guarantees the shortest path. Like Dijkstra’s algorithm, A* constructs a lowest-cost path tree. However, A* uses heuristics that reduce computation time by planning each step with informed decisions.",
+				funFact: "Fun fact: Google Maps uses an A* search coupled with collections of highly complex heuristics.",
+				url: "https://en.wikipedia.org/wiki/A*_search_algorithm",
 			},
 		],
 		imageContainerCss = null,
 		imageCss = null,
-		linkText = "SELECT"
+		linkText = "Learn more"
 	) {
 		const tutorial = { marginRight: "1rem", minWidth: desiredSize + "px" };
 		const { grid } = this.state;
@@ -239,9 +248,11 @@ class Pathfinder extends Component {
 						<ActionsBackgroundContainer ref={this.actions}>
 							<Row>
 								<ButtonsContainer>
-									<PrimaryButton>START</PrimaryButton>
-									<SecondaryButton>CLEAR GRID</SecondaryButton>
-									<SecondaryButton>CLEAR WALLS</SecondaryButton>
+									<PrimaryButton>DEPTH-FIRST</PrimaryButton>
+									<PrimaryButton>DIJKSTRA</PrimaryButton>
+									<PrimaryButton>A*</PrimaryButton>
+									<PrimaryButton css={tw`bg-red-500 hover:bg-red-600`}>CLEAR GRID</PrimaryButton>
+									<PrimaryButton css={tw`bg-yellow-500 hover:bg-yellow-600`}>CLEAR WALLS</PrimaryButton>
 									<SecondaryButton>GENERATE MAZE</SecondaryButton>
 								</ButtonsContainer>
 							</Row>
@@ -266,6 +277,7 @@ class Pathfinder extends Component {
 										</span>
 										<span className="title">{card.title}</span>
 										<p className="description">{card.description}</p>
+										<p className="funFact">{card.funFact}</p>
 										{linkText && (
 											<span className="link">
 												<span>{linkText}</span>
