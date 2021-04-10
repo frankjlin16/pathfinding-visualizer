@@ -1,6 +1,6 @@
 ## Pathfinding Visualizer
 
-This is a visualizer for multiple pathfinding algorithms. In essence, a pathfinding algorithm seeks to find the shortest path between two points. Additionally, this visualizer can recursively generate maze structures which creates navigational obstacles for the pathfinding algorithms, partially simulating a map application navigating the obstacles of a complex highway system or a puzzling urban sprawl.
+This is a visualizer for multiple pathfinding algorithms. In essence, a pathfinding algorithm seeks to find the shortest path between two points. Additionally, this visualizer can recursively generate maze structures which creates navigational obstacles for the pathfinding algorithms, partially simulating a map application navigating the obstacles of a complex highway system or puzzling urban sprawls.
 
 ## Motivation
 
