@@ -8,11 +8,12 @@ I built this web-app because I was curious how map applications worked and wante
 
 ## Features
 
-* feature 1
-* feature 2
-* feature 3
-* feature 4
-* feature 5
+1.	Three ubiquitous pathfinding algorithms
+2.	Pixel-perfect adapting grid dimensions
+3.	Fully responsive design
+4.	Recursive maze generation
+5.	Interactivity with touch/pen input support
+6.	Optimized for low-end mobile and tablet devices
 
 ## Algorithms
 
