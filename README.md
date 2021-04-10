@@ -4,15 +4,15 @@ Welcome to my pathfinding visualizer! I built this web-app because I was curious
 
 ## Features
 
-* Item 1
-* Item 2
-* Item 3
-* Item 4
-* Item 5
+* feature 1
+* feature 2
+* feature 3
+* feature 4
+* feature 5
 
 ## Algorithms
 
-All of the algorithms on this visualizer are adapted to a two-dimensional grid, where ninety degree turns and movements from one node to another have a cost of one. Furthermore, algorithms are either weighted or unweighted, and this weightedness dictates consideration of the afore mentioned costs. What’s more, not all algorithms guarantee the shortest path, so be sure to read their respective descriptions to understand capabilities.
+All the algorithms on this visualizer are adapted to a two-dimensional grid, where ninety degree turns and movements from one node to another have a calculated cost of one. Furthermore, algorithms are either weighted or unweighted, and their weightedness dictates consideration of the afore mentioned cost calculations. What’s more, not all algorithms guarantee the shortest path, so be sure to read their descriptions to understand capabilities. Select an algorithm below and get visualizing!
 
 ### Depth-first search
 
@@ -22,29 +22,23 @@ description
 
 description
 
-### A* search algorithm
-
-description
-
-## How To Use
+### A* search
 
 description
 
 ## Acknowledgements
 
-* [iconmonstr](https://iconmonstr.com)
-* wiki entreis
+### This software uses the following open source packages:
+
+* package 1
+* package 2
+* package 3
+
+### Special thanks to:
+
+* iconmonstr
+* wiki
 * treact
-
-## Credits
-
-This software uses the following open source packages:
-
-* Node.js
-* Item 2
-* Item 3
-* Item 4
-* Item 5
 
 ## License
 
