@@ -36,7 +36,7 @@ A* (A-star) search is weighted and guarantees the shortest path. Like Dijkstraâ€
 
 Fun fact: Google Maps uses an A* search coupled with collections of highly complex heuristics.
 
-## Acknowledgements
+## Credits
 
 * [Treact](https://treact.owaiskhan.me) by Owais Khan
 * [Twin](https://github.com/ben-rogerson/twin.macro) by Ben Rogerson and contributors
