@@ -29,7 +29,7 @@ description
 ## Acknowledgements
 
 * [Treact](https://treact.owaiskhan.me) by Owais Khan
-* [Twin](https://github.com/ben-rogerson/twin.macro) by Ben Rogerson
+* [Twin](https://github.com/ben-rogerson/twin.macro) by Ben Rogerson and contributors
 * [iconmonstr](https://iconmonstr.com) by Alexander Kahlkopf
 
 ## License
