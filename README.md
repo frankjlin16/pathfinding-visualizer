@@ -10,10 +10,10 @@ I built this web-app because I was curious how map applications worked and wante
 
 1.	Three ubiquitous pathfinding algorithms
 2.	Pixel-perfect adapting grid dimensions
-3.	Fully responsive design
-4.	Recursive maze generation
+3.	Fully responsive design with [tailwindcss](https://github.com/tailwindlabs/tailwindcss)
+4.	Recursive maze generation algorithm
 5.	Interactivity with touch/pen input support
-6.	Optimized for low-end mobile and tablet devices
+6.	Optimized for low-end mobile devices
 
 ## Algorithms
 
