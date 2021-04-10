@@ -42,7 +42,7 @@ Fun fact: Google Maps uses an A* search coupled with collections of highly compl
 * [Twin](https://github.com/ben-rogerson/twin.macro) by Ben Rogerson and contributors
 * [iconmonstr](https://iconmonstr.com) by Alexander Kahlkopf
 
-Project inspired by [Clément Mihailescu](https://github.com/clementmihailescu/Pathfinding-Visualizer)
+Project inspired by [Clément Mihailescu](https://github.com/clementmihailescu)
 
 ## License
 
