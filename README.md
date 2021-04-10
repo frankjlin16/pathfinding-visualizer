@@ -1,10 +1,10 @@
 ## Pathfinding Visualizer
 
-This is a visualizer for multiple pathfinding algorithms. In essence, a pathfinding algorithm seeks to find the shortest path between two points. Additionally, this visualizer can recursively generate maze structures which creates navigational obstacles for the pathfinding algorithms, effectively simulating a map application navigating the obstacles of a complex highway system or a puzzling urban sprawl.
+This is a visualizer for multiple pathfinding algorithms. In essence, a pathfinding algorithm seeks to find the shortest path between two points. Additionally, this visualizer can recursively generate maze structures which creates navigational obstacles for the pathfinding algorithms, partially simulating a map application navigating the obstacles of a complex highway system or a puzzling urban sprawl.
 
 ## Motivation
 
-I built this web-app because I was curious how map applications worked and wanted to visualize their algorithms. Also, this project was partially inspired by Clément Mihailescu’s educational [YouTube](https://www.youtube.com/channel/UCaO6VoaYJv4kS-TQO_M-N_g) channel.
+I built this web-app because I was curious how map applications worked and wanted to visualize their algorithms. Also, this project was appreciably inspired by Clément Mihailescu’s educational [YouTube](https://www.youtube.com/channel/UCaO6VoaYJv4kS-TQO_M-N_g) channel.
 
 ## Features
 
@@ -20,15 +20,21 @@ All the algorithms on this visualizer are adapted to a two-dimensional grid, whe
 
 ### Depth-first search
 
-description
+Depth-first search is unweighted and does not guarantee the shortest path. This algorithm works by beginning at the start node and exploring as far as possible along a given path and then backtracking until it finds an unexplored path to be explored.
+
+Fun fact: Depth-first search rarely returns the shortest path and is dreadfully inefficient at pathfinding!
 
 ### Dijkstra's algorithm
 
-description
+Dijkstra’s algorithm is weighted and guarantees the shortest path. This algorithm works by constructing a lowest-cost path tree through building a set of nodes that have the smallest distance from the start node to the finish node.
+
+Fun fact: Edsger Dijkstra invented his famous algorithm in roughly twenty minutes at a café.
 
 ### A* search
 
-description
+A* (A-star) search is weighted and guarantees the shortest path. Like Dijkstra’s algorithm, A* constructs a lowest-cost path tree. However, A* uses heuristics that reduce computation time by planning each step with informed decisions.
+
+Fun fact: Google Maps uses an A* search coupled with collections of highly complex heuristics.
 
 ## Acknowledgements
 
