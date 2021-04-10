@@ -30,7 +30,6 @@ description
 
 * [Treact](https://treact.owaiskhan.me)
 * [Twin](https://github.com/ben-rogerson/twin.macro)
-* [Wikipedia](https://en.wikipedia.org/wiki/Main_Page)
 * [iconmonstr](https://iconmonstr.com)
 
 ## License
