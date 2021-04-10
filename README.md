@@ -1,6 +1,6 @@
 ## Pathfinding Visualizer
 
-This is a visualizer for multiple pathfinding algorithms. In essence, a pathfinding algorithm seeks to find the shortest path between two points. Additionally, this visualizer can recursively generate maze structures which creates navigational obstacles for the pathfinding algorithms, partially simulating a map application navigating the obstacles of a complex highway system or puzzling urban sprawls.
+This is a visualizer for multiple pathfinding algorithms. In essence, a pathfinding algorithm seeks to find the shortest path between two points. Additionally, this visualizer uses a recursive division algorithm to procedurally generate maze structures. As a result, navigational obstacles are introduced to the pathfinding algorithms, somewhat simulating a map application navigating the obstacles of a complex highway system or puzzling urban sprawls.
 
 ## Motivation
 
@@ -9,11 +9,13 @@ I built this web-app because I was curious how map applications worked and wante
 ## Features
 
 1.	Three ubiquitous pathfinding algorithms
-2.	Pixel-perfect adapting grid dimensions
-3.	Fully responsive design with [Tailwind CSS](https://github.com/tailwindlabs/tailwindcss)
-4.	Recursive maze generation algorithm
-5.	Interactivity with touch/pen input support
-6.	Optimized for low-end mobile devices
+2.	One procedural maze generation algorithm
+3.	Pixel-perfect adapting grid dimensions
+4.	Fully responsive design with [Tailwind CSS](https://github.com/tailwindlabs/tailwindcss)
+5.	Drag/droppable start and finish nodes
+6.	Wall node creation for extended control
+7.	Interactivity with touch/pen input support
+8.	Optimized for low-end mobile devices
 
 ## Algorithms
 
@@ -35,7 +37,7 @@ Fun fact: Edsger Dijkstra invented his famous algorithm in roughly twenty minute
 
 A* (A-star) search is weighted and guarantees the shortest path. Like Dijkstra’s algorithm, A* constructs a lowest-cost path tree. However, A* uses heuristics that reduce computation time by planning each step with informed decisions.
 
-Fun fact: Google Maps uses an A* search coupled with collections of highly complex heuristics.
+Fun fact: Google Maps uses an A* search coupled with collections of highly advanced heuristics.
 
 ## Credits
 
