@@ -46,6 +46,7 @@ let computedSize;
 const rows = 20;
 let columns;
 let FINISH_NODE_COLUMN;
+let offsetWidth;
 
 class Pathfinder extends Component {
 	constructor(props) {
@@ -77,16 +78,20 @@ class Pathfinder extends Component {
 	}
 
 	updateGrid() {
-		this.clearGrid();
-		this.clearWalls();
+		if (this.actions.current.offsetWidth !== offsetWidth) {
+			offsetWidth = this.actions.current.offsetWidth;
 
-		columns = Math.floor(this.actions.current.offsetWidth / desiredSize);
-		if (FINISH_NODE_COLUMN >= columns) FINISH_NODE_COLUMN = columns - 1;
-		this.setState({ FINISH_NODE_COLUMN: FINISH_NODE_COLUMN });
+			this.clearGrid();
+			this.clearWalls();
 
-		computedSize = (this.actions.current.offsetWidth - 2) / columns;
-		const grid = this.createGrid();
-		this.setState({ grid });
+			columns = Math.floor(this.actions.current.offsetWidth / desiredSize);
+			if (FINISH_NODE_COLUMN >= columns) FINISH_NODE_COLUMN = columns - 1;
+			this.setState({ FINISH_NODE_COLUMN: FINISH_NODE_COLUMN });
+
+			computedSize = (this.actions.current.offsetWidth - 2) / columns;
+			const grid = this.createGrid();
+			this.setState({ grid });
+		}
 	}
 
 	createGrid = () => {
