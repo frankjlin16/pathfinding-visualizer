@@ -9,7 +9,7 @@ import React from "react";
 
 function App() {
 	return (
-		<AnimationRevealPage disabled>
+		<AnimationRevealPage>
 			<Header />
 			<Pathfinder />
 			<Footer />
