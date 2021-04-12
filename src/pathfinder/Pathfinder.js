@@ -3,6 +3,9 @@ import "./Pathfinder.css";
 import mapIcon1 from "pathfinder/images/map-1-icon.svg";
 import mapIcon2 from "pathfinder/images/map-2-icon.svg";
 import mapIcon3 from "pathfinder/images/map-3-icon.svg";
+import mapIcon4 from "pathfinder/images/map-4-icon.svg";
+import mapIcon5 from "pathfinder/images/map-5-icon.svg";
+import mapIcon6 from "pathfinder/images/map-6-icon.svg";
 import styled from "styled-components";
 import tw from "twin.macro";
 import React, { Component } from "react";
@@ -379,6 +382,13 @@ class Pathfinder extends Component {
 		cards = [
 			{
 				imageSrc: mapIcon1,
+				title: "Random walk",
+				description: "",
+				funFact: "Fun fact: ",
+				url: "",
+			},
+			{
+				imageSrc: mapIcon2,
 				title: "Depth-first search",
 				description:
 					"Depth-first search is unweighted and does not guarantee the shortest path. This algorithm works by beginning at the start node and exploring as far as possible along a given path and then backtracking until it finds an unexplored path to be explored.",
@@ -386,7 +396,21 @@ class Pathfinder extends Component {
 				url: "https://en.wikipedia.org/wiki/Depth-first_search",
 			},
 			{
-				imageSrc: mapIcon2,
+				imageSrc: mapIcon3,
+				title: "Breadth-first search",
+				description: "",
+				funFact: "Fun fact: ",
+				url: "",
+			},
+			{
+				imageSrc: mapIcon4,
+				title: "Greedy best-first search",
+				description: "",
+				funFact: "Fun fact: ",
+				url: "",
+			},
+			{
+				imageSrc: mapIcon5,
 				title: "Dijkstra’s algorithm",
 				description:
 					"Dijkstra’s algorithm is weighted and guarantees the shortest path. This algorithm works by constructing a lowest-cost path tree through building a set of nodes that have the smallest distance from the start node to the finish node.",
@@ -394,7 +418,7 @@ class Pathfinder extends Component {
 				url: "https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm",
 			},
 			{
-				imageSrc: mapIcon3,
+				imageSrc: mapIcon6,
 				title: "A* search",
 				description:
 					"A* (A-star) search is weighted and guarantees the shortest path. Like Dijkstra’s algorithm, A* constructs a lowest-cost path tree. However, A* uses heuristics that reduce computation time by planning each step with informed decisions.",
@@ -490,16 +514,16 @@ class Pathfinder extends Component {
 									<PrimaryButton>RANDOM WALK</PrimaryButton>
 									<PrimaryButton>DEPTH-FIRST</PrimaryButton>
 									<PrimaryButton>BREADTH-FIRST</PrimaryButton>
+									<PrimaryButton>GREEDY BEST</PrimaryButton>
 									<PrimaryButton onClick={() => this.visualize("dijkstra")}>DIJKSTRA</PrimaryButton>
-									<PrimaryButton>GREEDY-BEST</PrimaryButton>
 									<PrimaryButton>A*</PrimaryButton>
-									<SecondaryButton>GENERATE MAZE</SecondaryButton>
 									<PrimaryButton onClick={() => this.clearGrid()} css={tw`bg-red-500 hover:bg-red-600`}>
 										CLEAR GRID
 									</PrimaryButton>
 									<PrimaryButton onClick={() => this.clearWalls()} css={tw`bg-yellow-500 hover:bg-yellow-600`}>
 										CLEAR WALLS
 									</PrimaryButton>
+									<SecondaryButton>GENERATE MAZE</SecondaryButton>
 								</ButtonsContainer>
 							</Row>
 
