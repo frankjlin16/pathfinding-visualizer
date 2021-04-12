@@ -78,7 +78,7 @@ class Pathfinder extends Component {
 	}
 
 	updateGrid() {
-		if (this.actions.current.offsetWidth !== offsetWidth) {
+		if (offsetWidth !== this.actions.current.offsetWidth) {
 			offsetWidth = this.actions.current.offsetWidth;
 
 			this.clearGrid();
