@@ -1,6 +1,7 @@
 import "style.css";
 import "tailwindcss/dist/base.css";
 
+import Algorithms from "pathfinder/Algorithms";
 import AnimationRevealPage from "helpers/AnimationRevealPage";
 import Footer from "pathfinder/Footer";
 import Header from "pathfinder/Header";
@@ -12,6 +13,7 @@ function App() {
 		<AnimationRevealPage>
 			<Header />
 			<Pathfinder />
+			<Algorithms />
 			<Footer />
 		</AnimationRevealPage>
 	);
