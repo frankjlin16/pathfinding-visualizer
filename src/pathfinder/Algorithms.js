@@ -10,7 +10,7 @@ import tw from "twin.macro";
 import { ReactComponent as ArrowRightIcon } from "images/arrow-right-icon.svg";
 import { Container, ContentWithPaddingXl } from "components/misc/Layouts.js";
 import { SectionDescription } from "components/misc/Typography.js";
-import { SectionHeading, Subheading as SubheadingBase } from "components/misc/Headings.js";
+import { SectionHeading } from "components/misc/Headings.js";
 import { ReactComponent as SvgDecoratorBlob } from "images/svg-decorator-blob-8.svg";
 import { css } from "styled-components/macro"; //eslint-disable-line
 
