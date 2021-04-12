@@ -17,6 +17,7 @@ import { ReactComponent as SvgDecoratorCircle } from "images/svg-decorator-blob-
 import { css } from "styled-components/macro"; //eslint-disable-line
 
 import Node from "./Node";
+import { dijkstra } from "./algorithms/dijkstra";
 
 const PrimaryBackgroundContainer = tw.div`py-16 lg:py-20 bg-purple-200 relative`;
 const Row = tw.div`px-4 sm:px-16 mx-auto flex justify-center items-center relative z-10 flex-col text-center lg:text-left`;
@@ -69,7 +70,7 @@ const Card = styled.a`
 		${tw`mt-4 font-bold text-xl leading-none`}
 	}
 	.description {
-		${tw`mt-4 text-sm font-medium text-secondary-100`}
+		${tw`mt-4 text-sm font-medium text-secondary-100`}v
 	}
 	.funFact {
 		${tw`mt-4 text-sm font-medium text-secondary-100 italic`}
@@ -86,16 +87,29 @@ const desiredSize = 40;
 let computedSize;
 const rows = 20;
 let columns;
+let FINISH_NODE_COLUMN;
 
 class Pathfinder extends Component {
 	constructor(props) {
 		super(props);
-		this.state = { grid: [] };
+		this.state = {
+			grid: [],
+			START_NODE_ROW: 1,
+			START_NODE_COLUMN: 1,
+			FINISH_NODE_ROW: rows - 2,
+			FINISH_NODE_COLUMN: FINISH_NODE_COLUMN,
+			isRunning: false,
+			isMouseDown: false,
+		};
 		this.updateGrid = this.updateGrid.bind(this);
 		this.actions = React.createRef();
 	}
 
 	componentDidMount() {
+		columns = Math.floor(this.actions.current.offsetWidth / desiredSize);
+		FINISH_NODE_COLUMN = columns - 2;
+		this.setState({ FINISH_NODE_COLUMN: FINISH_NODE_COLUMN });
+
 		this.updateGrid();
 		window.addEventListener("resize", this.updateGrid);
 	}
@@ -105,7 +119,13 @@ class Pathfinder extends Component {
 	}
 
 	updateGrid() {
+		this.clearGrid();
+		this.clearWalls();
+
 		columns = Math.floor(this.actions.current.offsetWidth / desiredSize);
+		if (FINISH_NODE_COLUMN >= columns) FINISH_NODE_COLUMN = columns - 1;
+		this.setState({ FINISH_NODE_COLUMN: FINISH_NODE_COLUMN });
+
 		computedSize = (this.actions.current.offsetWidth - 2) / columns;
 		const grid = this.createGrid();
 		this.setState({ grid });
@@ -127,8 +147,8 @@ class Pathfinder extends Component {
 		return {
 			row,
 			column,
-			isStart: row === 1 && column === 1,
-			isFinish: row === rows - 2 && column === columns - 2,
+			isStart: row === this.state.START_NODE_ROW && column === this.state.START_NODE_COLUMN,
+			isFinish: row === this.state.FINISH_NODE_ROW && column === FINISH_NODE_COLUMN,
 			isWall: false,
 			isVisited: false,
 			distance: Infinity,
@@ -136,9 +156,224 @@ class Pathfinder extends Component {
 		};
 	};
 
+	visualize(algorithm) {
+		if (!this.state.isRunning) {
+			this.clearGrid();
+			this.toggleRunning();
+			const { grid } = this.state;
+			const startNode = grid[this.state.START_NODE_ROW][this.state.START_NODE_COLUMN];
+			const finishNode = grid[this.state.FINISH_NODE_ROW][this.state.FINISH_NODE_COLUMN];
+			let visitedNodes;
+			switch (algorithm) {
+				case "dijkstra":
+					visitedNodes = dijkstra(grid, startNode, finishNode);
+					break;
+				default:
+					break;
+			}
+			const path = this.getPath(finishNode);
+			this.animate(visitedNodes, path);
+		}
+	}
+
+	clearGrid() {
+		if (!this.state.isRunning) {
+			for (const row of this.state.grid) {
+				for (const node of row) {
+					let className = document.getElementById(`node-${node.row}-${node.column}`).className;
+					if (className === "node start") {
+						node.isVisited = false;
+						node.distance = Infinity;
+						node.previousNode = null;
+					}
+					if (className === "node finish") {
+						node.isVisited = false;
+						node.distance = Infinity;
+						node.previousNode = null;
+					}
+					if (className !== "node start" && className !== "node finish" && className !== "node wall") {
+						document.getElementById(`node-${node.row}-${node.column}`).className = "node";
+						node.isVisited = false;
+						node.distance = Infinity;
+						node.previousNode = null;
+					}
+				}
+			}
+		}
+	}
+
+	clearWalls() {
+		if (!this.state.isRunning) {
+			for (const row of this.state.grid) {
+				for (const node of row) {
+					let className = document.getElementById(`node-${node.row}-${node.column}`).className;
+					if (className === "node wall") {
+						document.getElementById(`node-${node.row}-${node.column}`).className = "node";
+						node.isWall = false;
+					}
+				}
+			}
+		}
+	}
+
+	toggleRunning() {
+		this.setState({ isRunning: !this.state.isRunning });
+	}
+
+	getPath(finishNode) {
+		const path = [];
+		let currentNode = finishNode;
+		while (currentNode !== null) {
+			path.unshift(currentNode);
+			currentNode = currentNode.previousNode;
+		}
+		return path;
+	}
+
+	animate(visitedNodes, path) {
+		for (let i = 0; i <= visitedNodes.length; ++i) {
+			if (i === visitedNodes.length) {
+				setTimeout(() => {
+					this.animatePath(path);
+				}, 10 * i);
+				return;
+			}
+			setTimeout(() => {
+				const node = visitedNodes[i];
+				if (document.getElementById(`node-${node.row}-${node.column}`).className === "node")
+					document.getElementById(`node-${node.row}-${node.column}`).className = "node visited";
+			}, 10 * i);
+		}
+	}
+
+	animatePath(path) {
+		for (let i = 0; i < path.length; ++i) {
+			setTimeout(() => {
+				const node = path[i];
+				if (document.getElementById(`node-${node.row}-${node.column}`).className === "node visited")
+					document.getElementById(`node-${node.row}-${node.column}`).className = "node path";
+				if (i + 1 === path.length) {
+					this.toggleRunning();
+				}
+			}, 50 * i);
+		}
+	}
+
+	handleMouseDown(row, column) {
+		if (!this.state.isRunning) {
+			this.clearGrid();
+			// if (document.getElementById(`node-${row}-${column}`).className === "node node-start") {
+			// 	this.setState({
+			// 		mouseIsPressed: true,
+			// 		isStartNode: true,
+			// 		currRow: row,
+			// 		currCol: column,
+			// 	});
+			// } else if (document.getElementById(`node-${row}-${column}`).className === "node node-finish") {
+			// 	this.setState({
+			// 		mouseIsPressed: true,
+			// 		isFinishNode: true,
+			// 		currRow: row,
+			// 		currCol: column,
+			// 	});
+			// } else {
+			const newGrid = this.toggleWall(this.state.grid, row, column);
+			this.setState({
+				grid: newGrid,
+				isMouseDown: true,
+				// isWallNode: true,
+				// currRow: row,
+				// currCol: column,
+			});
+			// }
+		}
+	}
+
+	handleMouseEnter(row, column) {
+		if (!this.state.isRunning) {
+			if (this.state.isMouseDown) {
+				// const className = document.getElementById(`node-${row}-${col}`).className;
+				// if (this.state.isStartNode) {
+				// 	if (className !== "node node-wall") {
+				// 		const prevStartNode = this.state.grid[this.state.currRow][this.state.currCol];
+				// 		prevStartNode.isStart = false;
+				// 		document.getElementById(`node-${this.state.currRow}-${this.state.currCol}`).className = "node";
+
+				// 		this.setState({ currRow: row, currCol: col });
+				// 		const currStartNode = this.state.grid[row][col];
+				// 		currStartNode.isStart = true;
+				// 		document.getElementById(`node-${row}-${col}`).className = "node node-start";
+				// 	}
+				// 	this.setState({ START_NODE_ROW: row, START_NODE_COL: col });
+				// } else if (this.state.isFinishNode) {
+				// 	if (className !== "node node-wall") {
+				// 		const prevFinishNode = this.state.grid[this.state.currRow][this.state.currCol];
+				// 		prevFinishNode.isFinish = false;
+				// 		document.getElementById(`node-${this.state.currRow}-${this.state.currCol}`).className = "node";
+
+				// 		this.setState({ currRow: row, currCol: col });
+				// 		const currFinishNode = this.state.grid[row][col];
+				// 		currFinishNode.isFinish = true;
+				// 		document.getElementById(`node-${row}-${col}`).className = "node node-finish";
+				// 	}
+				// 	this.setState({ FINISH_NODE_ROW: row, FINISH_NODE_COL: col });
+				// } else if (this.state.isWallNode) {
+				const newGrid = this.toggleWall(this.state.grid, row, column);
+				this.setState({ grid: newGrid });
+				// }
+			}
+		}
+	}
+
+	handleMouseUp(row, column) {
+		if (!this.state.isRunning) {
+			this.setState({ isMouseDown: false });
+			// if (this.state.isStartNode) {
+			// 	const isStartNode = !this.state.isStartNode;
+			// 	this.setState({ isStartNode, START_NODE_ROW: row, START_NODE_COL: col });
+			// } else if (this.state.isFinishNode) {
+			// 	const isFinishNode = !this.state.isFinishNode;
+			// 	this.setState({
+			// 		isFinishNode,
+			// 		FINISH_NODE_ROW: row,
+			// 		FINISH_NODE_COL: col,
+			// 	});
+			// }
+			// this.getInitialGrid();
+		}
+	}
+
+	handleMouseLeave() {
+		if (!this.state.isRunning) {
+			// if (this.state.isStartNode) {
+			// 	const isStartNode = !this.state.isStartNode;
+			// 	this.setState({ isStartNode, mouseIsPressed: false });
+			// } else if (this.state.isFinishNode) {
+			// 	const isFinishNode = !this.state.isFinishNode;
+			// 	this.setState({ isFinishNode, mouseIsPressed: false });
+			// } else if (this.state.isWallNode) {
+			// 	const isWallNode = !this.state.isWallNode;
+			// 	this.setState({ isWallNode, mouseIsPressed: false });
+			// 	this.getInitialGrid();
+			// }
+			this.setState({ isMouseDown: false });
+		}
+	}
+
+	toggleWall(grid, row, column) {
+		let node = grid[row][column];
+		if (!node.isStart && !node.isFinish)
+			node = {
+				...node,
+				isWall: !node.isWall,
+			};
+		grid[row][column] = node;
+		return grid;
+	}
+
 	render(
 		subheading = "Tutorial",
-		tutorialDescription = "Before beginning, drag-and-drop the start and finish nodes to your desired location and create walls by selecting any nodes on the grid. After, read about the different algorithms at the bottom of the page and decide which you want to use, then select its respective button to start visualizing. During use, refer to the legend below to understand any particular node’s state.",
+		tutorialDescription = "Before beginning, drag and drop the start and finish nodes to your desired location and create walls by selecting any unvisited nodes on the grid. After, read about the different algorithms at the bottom of the page and decide which you want to use, then select its respective button to start visualizing. During use, refer to the legend below to understand any particular node’s state.",
 		heading = "Meet the algorithms.",
 		algorithmsDescription = "All the algorithms on this visualizer are adapted to a two-dimensional grid, where ninety degree turns and movements from one node to another have a calculated cost of one. Furthermore, algorithms are either weighted or unweighted, and their weightedness dictates consideration of the afore mentioned cost calculations. What’s more, not all algorithms guarantee the shortest path, so be sure to read their descriptions to understand capabilities.",
 		cards = [
@@ -171,8 +406,8 @@ class Pathfinder extends Component {
 		imageCss = null,
 		linkText = "Learn more"
 	) {
-		const tutorial = { marginRight: "1rem", minWidth: desiredSize + "px" };
-		const { grid } = this.state;
+		const tutorial = { marginRight: "1rem", minWidth: desiredSize + "px", pointerEvents: "none" };
+		const { grid, isMouseDown } = this.state;
 		return (
 			<>
 				<Container>
@@ -223,7 +458,7 @@ class Pathfinder extends Component {
 				</Container>
 				<Container>
 					<ContentWithPaddingXl css={tw`pt-0`}>
-						<div className="grid">
+						<div className="grid" onMouseLeave={() => this.handleMouseLeave()}>
 							{grid.map((row, rowIndex) => {
 								return (
 									<div key={rowIndex}>
@@ -238,6 +473,10 @@ class Pathfinder extends Component {
 													isStart={isStart}
 													isFinish={isFinish}
 													isWall={isWall}
+													isMouseDown={isMouseDown}
+													onMouseDown={(row, column) => this.handleMouseDown(row, column)}
+													onMouseEnter={(row, column) => this.handleMouseEnter(row, column)}
+													onMouseUp={() => this.handleMouseUp()}
 												></Node>
 											);
 										})}
@@ -248,14 +487,22 @@ class Pathfinder extends Component {
 						<ActionsBackgroundContainer ref={this.actions}>
 							<Row>
 								<ButtonsContainer>
+									<PrimaryButton>RANDOM WALK</PrimaryButton>
 									<PrimaryButton>DEPTH-FIRST</PrimaryButton>
-									<PrimaryButton>DIJKSTRA</PrimaryButton>
+									<PrimaryButton>BREADTH-FIRST</PrimaryButton>
+									<PrimaryButton onClick={() => this.visualize("dijkstra")}>DIJKSTRA</PrimaryButton>
+									<PrimaryButton>GREEDY-BEST</PrimaryButton>
 									<PrimaryButton>A*</PrimaryButton>
-									<PrimaryButton css={tw`bg-red-500 hover:bg-red-600`}>CLEAR GRID</PrimaryButton>
-									<PrimaryButton css={tw`bg-yellow-500 hover:bg-yellow-600`}>CLEAR WALLS</PrimaryButton>
 									<SecondaryButton>GENERATE MAZE</SecondaryButton>
+									<PrimaryButton onClick={() => this.clearGrid()} css={tw`bg-red-500 hover:bg-red-600`}>
+										CLEAR GRID
+									</PrimaryButton>
+									<PrimaryButton onClick={() => this.clearWalls()} css={tw`bg-yellow-500 hover:bg-yellow-600`}>
+										CLEAR WALLS
+									</PrimaryButton>
 								</ButtonsContainer>
 							</Row>
+
 							<DecoratorCircleContainer>
 								<DecoratorCircle3 />
 								<DecoratorCircle4 />
