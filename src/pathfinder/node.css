@@ -2,6 +2,7 @@
 	border: 1px solid #e9d8fd;
 	display: inline-block;
 	height: 40px;
+	user-select: none;
 	width: 40px;
 }
 
@@ -14,13 +15,67 @@
 }
 
 .node.wall {
+	animation: wallAnimation 0.5s ease-out;
 	background-color: #243e63;
 }
 
+@keyframes wallAnimation {
+	0% {
+		display: none;
+		opacity: 0;
+	}
+
+	1% {
+		display: block;
+		opacity: 0;
+	}
+
+	100% {
+		display: block;
+		opacity: 1;
+	}
+}
+
 .node.visited {
-	background-color: #4299e1;
+	animation: visitedAnimation 0.5s ease-out;
+	background-color: #6415ff;
+}
+
+@keyframes visitedAnimation {
+	0% {
+		display: none;
+		opacity: 0;
+	}
+
+	1% {
+		display: block;
+		opacity: 0;
+	}
+
+	100% {
+		display: block;
+		opacity: 1;
+	}
 }
 
 .node.path {
+	animation: pathAnimation 0.5s ease-out;
 	background-color: #ecc94b;
+}
+
+@keyframes pathAnimation {
+	0% {
+		display: none;
+		opacity: 0;
+	}
+
+	1% {
+		display: block;
+		opacity: 0;
+	}
+
+	100% {
+		display: block;
+		opacity: 1;
+	}
 }
