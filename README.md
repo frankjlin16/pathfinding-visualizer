@@ -8,7 +8,7 @@ I built this web-app because I was curious how map applications worked and wante
 
 ## Features
 
-1.	Six ubiquitous pathfinding algorithms
+1.	Six assorted pathfinding algorithms
 2.	One procedural maze generation algorithm
 3.	Pixel-perfect adapting grid dimensions
 4.	Fully responsive design with [Tailwind CSS](https://github.com/tailwindlabs/tailwindcss)
