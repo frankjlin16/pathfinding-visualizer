@@ -21,19 +21,19 @@ I built this web-app because I was curious how map applications worked and wante
 
 All the algorithms on this visualizer are adapted to a two-dimensional grid, where ninety degree turns and movements from one node to another have a calculated cost of one. Furthermore, algorithms are either weighted or unweighted, and their weightedness dictates consideration of the afore mentioned cost calculations. What’s more, not all algorithms guarantee the shortest path, so be sure to read their descriptions to understand capabilities.
 
-### 1. Depth-first search
+### Depth-first search
 
 Depth-first search is unweighted and does not guarantee the shortest path. This algorithm works by beginning at the start node and exploring as far as possible along a given path and then backtracking until it finds an unexplored path to be explored.
 
 Fun fact: Depth-first search rarely returns the shortest path and is dreadfully inefficient at pathfinding!
 
-### 2. Dijkstra's algorithm
+### Dijkstra's algorithm
 
 Dijkstra’s algorithm is weighted and guarantees the shortest path. This algorithm works by constructing a lowest-cost path tree through building a set of nodes that have the smallest distance from the start node to the finish node.
 
 Fun fact: Edsger Dijkstra invented his famous algorithm in roughly twenty minutes at a café.
 
-### 3. A* search
+### A* search
 
 A* (A-star) search is weighted and guarantees the shortest path. Like Dijkstra’s algorithm, A* constructs a lowest-cost path tree. However, A* uses heuristics that reduce computation time by planning each step with informed decisions.
 
