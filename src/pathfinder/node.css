@@ -1,8 +1,11 @@
+* {
+	user-select: none;
+}
+
 .node {
 	border: 1px solid #e9d8fd;
 	display: inline-block;
 	height: 40px;
-	user-select: none;
 	width: 40px;
 }
 
