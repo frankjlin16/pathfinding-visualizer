@@ -118,6 +118,7 @@ export default ({
 								</span>
 								<span className="title">{card.title}</span>
 								<p className="description">{card.description}</p>
+								<p className="funFact">{card.funFact}</p>
 								{linkText && (
 									<span className="link">
 										<span>{linkText}</span>
