@@ -41,11 +41,12 @@ const SecondaryButton = tw(Button)`text-primary-500 hover:text-primary-600 bg-gr
 const DecoratorCircle3 = tw(SvgDecoratorCircle)`absolute bottom-0 right-0 w-80 h-80 transform translate-x-20 translate-y-32 text-primary-500 opacity-5`;
 const DecoratorCircle4 = tw(SvgDecoratorCircle)`absolute top-0 left-0 w-80 h-80 transform -translate-x-20 -translate-y-64 text-primary-500 opacity-5`;
 
-const desiredSize = 40;
-let computedSize;
+let START_NODE_COLUMN;
+let FINISH_NODE_COLUMN;
 const rows = 20;
 let columns;
-let FINISH_NODE_COLUMN;
+const desiredSize = 40;
+let computedSize;
 let offsetWidth;
 
 class Pathfinder extends Component {
@@ -54,9 +55,13 @@ class Pathfinder extends Component {
 		this.state = {
 			grid: [],
 			START_NODE_ROW: 1,
-			START_NODE_COLUMN: 1,
+			START_NODE_COLUMN: START_NODE_COLUMN,
 			FINISH_NODE_ROW: rows - 2,
 			FINISH_NODE_COLUMN: FINISH_NODE_COLUMN,
+			row: 0,
+			column: 0,
+			isStart: false,
+			isFinish: false,
 			isRunning: false,
 			isMouseDown: false,
 		};
@@ -66,8 +71,9 @@ class Pathfinder extends Component {
 
 	componentDidMount() {
 		columns = Math.floor(this.actions.current.offsetWidth / desiredSize);
+		START_NODE_COLUMN = 1;
 		FINISH_NODE_COLUMN = columns - 2;
-		this.setState({ FINISH_NODE_COLUMN: FINISH_NODE_COLUMN });
+		this.setState({ START_NODE_COLUMN: START_NODE_COLUMN, FINISH_NODE_COLUMN: FINISH_NODE_COLUMN });
 
 		this.updateGrid();
 		window.addEventListener("resize", this.updateGrid);
@@ -85,8 +91,9 @@ class Pathfinder extends Component {
 			this.clearWalls();
 
 			columns = Math.floor(this.actions.current.offsetWidth / desiredSize);
+			if (START_NODE_COLUMN >= columns) START_NODE_COLUMN = columns - 1;
 			if (FINISH_NODE_COLUMN >= columns) FINISH_NODE_COLUMN = columns - 1;
-			this.setState({ FINISH_NODE_COLUMN: FINISH_NODE_COLUMN });
+			this.setState({ START_NODE_COLUMN: START_NODE_COLUMN, FINISH_NODE_COLUMN: FINISH_NODE_COLUMN });
 
 			computedSize = (this.actions.current.offsetWidth - 2) / columns;
 			const grid = this.createGrid();
@@ -110,7 +117,7 @@ class Pathfinder extends Component {
 		return {
 			row,
 			column,
-			isStart: row === this.state.START_NODE_ROW && column === this.state.START_NODE_COLUMN,
+			isStart: row === this.state.START_NODE_ROW && column === START_NODE_COLUMN,
 			isFinish: row === this.state.FINISH_NODE_ROW && column === FINISH_NODE_COLUMN,
 			isWall: false,
 			isVisited: false,
@@ -167,6 +174,7 @@ class Pathfinder extends Component {
 
 	clearWalls() {
 		if (!this.state.isRunning) {
+			this.clearGrid();
 			for (const row of this.state.grid) {
 				for (const node of row) {
 					let className = document.getElementById(`node-${node.row}-${node.column}`).className;
@@ -225,112 +233,84 @@ class Pathfinder extends Component {
 	handleMouseDown(row, column) {
 		if (!this.state.isRunning) {
 			this.clearGrid();
-			// if (document.getElementById(`node-${row}-${column}`).className === "node node-start") {
-			// 	this.setState({
-			// 		mouseIsPressed: true,
-			// 		isStartNode: true,
-			// 		currRow: row,
-			// 		currCol: column,
-			// 	});
-			// } else if (document.getElementById(`node-${row}-${column}`).className === "node node-finish") {
-			// 	this.setState({
-			// 		mouseIsPressed: true,
-			// 		isFinishNode: true,
-			// 		currRow: row,
-			// 		currCol: column,
-			// 	});
-			// } else {
-			const newGrid = this.toggleWall(this.state.grid, row, column);
-			this.setState({
-				grid: newGrid,
-				isMouseDown: true,
-				// isWallNode: true,
-				// currRow: row,
-				// currCol: column,
-			});
-			// }
+			if (document.getElementById(`node-${row}-${column}`).className === "node start") {
+				this.setState({
+					row: row,
+					column: column,
+					isStart: true,
+					isMouseDown: true,
+				});
+			} else if (document.getElementById(`node-${row}-${column}`).className === "node finish") {
+				this.setState({
+					row: row,
+					column: column,
+					isFinish: true,
+					isMouseDown: true,
+				});
+			} else {
+				const newGrid = this.toggleWall(this.state.grid, row, column);
+				this.setState({
+					grid: newGrid,
+					row: row,
+					column: column,
+					isMouseDown: true,
+				});
+			}
 		}
 	}
 
 	handleMouseEnter(row, column) {
 		if (!this.state.isRunning) {
 			if (this.state.isMouseDown) {
-				// const className = document.getElementById(`node-${row}-${col}`).className;
-				// if (this.state.isStartNode) {
-				// 	if (className !== "node node-wall") {
-				// 		const prevStartNode = this.state.grid[this.state.currRow][this.state.currCol];
-				// 		prevStartNode.isStart = false;
-				// 		document.getElementById(`node-${this.state.currRow}-${this.state.currCol}`).className = "node";
+				const className = document.getElementById(`node-${row}-${column}`).className;
+				if (this.state.isStart) {
+					if (className !== "node finish" && className !== "node wall") {
+						const previousNode = this.state.grid[this.state.row][this.state.column];
+						previousNode.isStart = false;
 
-				// 		this.setState({ currRow: row, currCol: col });
-				// 		const currStartNode = this.state.grid[row][col];
-				// 		currStartNode.isStart = true;
-				// 		document.getElementById(`node-${row}-${col}`).className = "node node-start";
-				// 	}
-				// 	this.setState({ START_NODE_ROW: row, START_NODE_COL: col });
-				// } else if (this.state.isFinishNode) {
-				// 	if (className !== "node node-wall") {
-				// 		const prevFinishNode = this.state.grid[this.state.currRow][this.state.currCol];
-				// 		prevFinishNode.isFinish = false;
-				// 		document.getElementById(`node-${this.state.currRow}-${this.state.currCol}`).className = "node";
+						const currentNode = this.state.grid[row][column];
+						currentNode.isStart = true;
 
-				// 		this.setState({ currRow: row, currCol: col });
-				// 		const currFinishNode = this.state.grid[row][col];
-				// 		currFinishNode.isFinish = true;
-				// 		document.getElementById(`node-${row}-${col}`).className = "node node-finish";
-				// 	}
-				// 	this.setState({ FINISH_NODE_ROW: row, FINISH_NODE_COL: col });
-				// } else if (this.state.isWallNode) {
-				const newGrid = this.toggleWall(this.state.grid, row, column);
-				this.setState({ grid: newGrid });
-				// }
+						START_NODE_COLUMN = column;
+						this.setState({ START_NODE_ROW: row, START_NODE_COLUMN: column });
+						this.setState({ row: row, column: column });
+					}
+				} else if (this.state.isFinish) {
+					if (className !== "node start" && className !== "node wall") {
+						const previousNode = this.state.grid[this.state.row][this.state.column];
+						previousNode.isFinish = false;
+
+						const currentNode = this.state.grid[row][column];
+						currentNode.isFinish = true;
+
+						FINISH_NODE_COLUMN = column;
+						this.setState({ FINISH_NODE_ROW: row, FINISH_NODE_COLUMN: column });
+						this.setState({ row: row, column: column });
+					}
+				} else {
+					const newGrid = this.toggleWall(this.state.grid, row, column);
+					this.setState({ grid: newGrid });
+				}
 			}
 		}
 	}
 
-	handleMouseUp(row, column) {
+	handleMouseUp() {
 		if (!this.state.isRunning) {
-			this.setState({ isMouseDown: false });
-			// if (this.state.isStartNode) {
-			// 	const isStartNode = !this.state.isStartNode;
-			// 	this.setState({ isStartNode, START_NODE_ROW: row, START_NODE_COL: col });
-			// } else if (this.state.isFinishNode) {
-			// 	const isFinishNode = !this.state.isFinishNode;
-			// 	this.setState({
-			// 		isFinishNode,
-			// 		FINISH_NODE_ROW: row,
-			// 		FINISH_NODE_COL: col,
-			// 	});
-			// }
-			// this.getInitialGrid();
-		}
-	}
-
-	handleMouseLeave() {
-		if (!this.state.isRunning) {
-			// if (this.state.isStartNode) {
-			// 	const isStartNode = !this.state.isStartNode;
-			// 	this.setState({ isStartNode, mouseIsPressed: false });
-			// } else if (this.state.isFinishNode) {
-			// 	const isFinishNode = !this.state.isFinishNode;
-			// 	this.setState({ isFinishNode, mouseIsPressed: false });
-			// } else if (this.state.isWallNode) {
-			// 	const isWallNode = !this.state.isWallNode;
-			// 	this.setState({ isWallNode, mouseIsPressed: false });
-			// 	this.getInitialGrid();
-			// }
-			this.setState({ isMouseDown: false });
+			this.setState({ isStart: false, isFinish: false, isMouseDown: false });
 		}
 	}
 
 	toggleWall(grid, row, column) {
 		let node = grid[row][column];
-		if (!node.isStart && !node.isFinish)
+		if (!node.isStart && !node.isFinish) {
+			document.getElementById(`node-${node.row}-${node.column}`).className = "node wall";
 			node = {
 				...node,
 				isWall: !node.isWall,
 			};
-		grid[row][column] = node;
+			grid[row][column] = node;
+		}
 		return grid;
 	}
 
@@ -390,7 +370,7 @@ class Pathfinder extends Component {
 				</Container>
 				<Container>
 					<ContentWithPaddingXl css={tw`pt-0`}>
-						<div className="grid" onMouseLeave={() => this.handleMouseLeave()}>
+						<div className="grid" onMouseLeave={() => this.handleMouseUp()}>
 							{grid.map((row, rowIndex) => {
 								return (
 									<div key={rowIndex}>
