@@ -1,4 +1,5 @@
 * {
+	touch-action: manipulation;
 	user-select: none;
 }
 
