@@ -43,11 +43,11 @@ const DecoratorCircle4 = tw(SvgDecoratorCircle)`absolute top-0 left-0 w-80 h-80 
 
 let START_NODE_COLUMN;
 let FINISH_NODE_COLUMN;
-const rows = 20;
+const rows = 15;
 let columns;
+let offsetWidth;
 const desiredSize = 40;
 let computedSize;
-let offsetWidth;
 
 class Pathfinder extends Component {
 	constructor(props) {
@@ -77,6 +77,7 @@ class Pathfinder extends Component {
 
 		this.updateGrid();
 		window.addEventListener("resize", this.updateGrid);
+		document.getElementById("root").addEventListener("click", () => {});
 	}
 
 	componentWillUnmount() {
