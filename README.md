@@ -21,6 +21,8 @@ I built this web-app because I was curious how map applications worked and wante
 
 Before beginning, drag and drop the START and FINISH nodes to your desired location and create walls by selecting any UNVISITED nodes on the grid.<sup>1</sup>  After, read about the different algorithms below and decide which you want to use, then select its respective button to start visualizing. During use, refer to the legend to understand any particular node’s state.
 
+1.	START/FINISH node transposition not supported on mobile devices.
+
 ## Algorithms
 
 All the algorithms on this visualizer are adapted to a two-dimensional grid, where ninety degree turns and movements from one node to another have a cost of one. Furthermore, algorithms are either weighted or unweighted, and their weightedness dictates consideration of the afore mentioned costs. What’s more, not all algorithms guarantee the shortest path, so be sure to read their descriptions to understand capabilities.
@@ -28,16 +30,19 @@ All the algorithms on this visualizer are adapted to a two-dimensional grid, whe
 ### Random walk
 
 Random walk is unweighted and does not guarantee the shortest path. This algorithm works by repeatedly choosing and exploring neighbor nodes at random or based on a probability distribution, keeping the resulting path in a list.
+
 `Fun fact: Random walks have applications in nearly every major field of science.`
 
 ### Depth-first search
 
 Depth-first search is unweighted and does not guarantee the shortest path. This algorithm works by exploring as far as possible along a given path and then backtracking until it finds an unexplored path to be explored.
+
 `Fun fact: Depth-first search is inefficient at pathfinding because of its dreadful meandering!`
 
 ### Breadth-first search
 
 Breadth-first search is unweighted and guarantees the shortest path. This algorithm works by exploring all neighbor nodes at the present depth prior to exploring nodes at succeeding depth.
+
 `Fun fact: Breadth-first search was invented in 1945 by computer scientist Konrad Zuse, in his rejected Ph.D. thesis.`
 
 ### Greedy best-first search
@@ -57,8 +62,6 @@ Dijkstra’s algorithm is weighted and guarantees the shortest path. This algori
 A* (A-star) search is weighted and guarantees the shortest path. Like Dijkstra’s algorithm, A* constructs a lowest-cost path tree. However, A* uses heuristics that reduce computation time by planning each step with informed decisions.
 
 `Fun fact: Google Maps uses an A* search coupled with collections of highly advanced heuristics.`
-
-1.	START/FINISH node transposition not supported on mobile devices.
 
 ## Credits
 
