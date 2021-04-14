@@ -53,7 +53,7 @@ export default ({
 			imageSrc: mapIcon1,
 			title: "Random walk",
 			description:
-				"Random walk is unweighted and does not guarantee the shortest path. This algorithm works by repeatedly choosing and exploring neighbor nodes at random or based on a probability distribution, keeping the resulting path in a list.",
+				"Random walk is unweighted and does not guarantee the shortest path. This algorithm works by repeatedly choosing and exploring neighbor nodes at random or based on a probability distribution.",
 			funFact: "Fun fact: Random walks have applications in nearly every major field of science.",
 			url: "https://en.wikipedia.org/wiki/Random_walk",
 		},
@@ -77,7 +77,7 @@ export default ({
 			imageSrc: mapIcon4,
 			title: "Greedy best-first search",
 			description:
-				"Greedy best-first search is unweighted and does not guarantee the shortest path. This algorithm works by always choosing the lowest-cost path through using a combination of depth-first search and breadth-first search algorithms.",
+				"Greedy best-first search is unweighted and does not guarantee the shortest path. This algorithm works by always choosing the lowest-cost path through a combination of depth-first search and breadth-first search algorithms.",
 			funFact: "Fun fact: Greedy best-first search is not optimal for pathfinding because it can get stuck in infinite loops.",
 			url: "https://en.wikipedia.org/wiki/Best-first_search",
 		},
