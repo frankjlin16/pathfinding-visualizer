@@ -30,7 +30,7 @@ All the algorithms on this visualizer are adapted to a two-dimensional grid, whe
 
 ### Random walk
 
-Random walk is unweighted and does not guarantee the shortest path. This algorithm works by repeatedly choosing and exploring neighbor nodes at random or based on a probability distribution, keeping the resulting path in a list.
+Random walk is unweighted and does not guarantee the shortest path. This algorithm works by repeatedly choosing and exploring neighbor nodes at random or based on a probability distribution.
 
 `Fun fact: Random walks have applications in nearly every major field of science.`
 
@@ -48,7 +48,7 @@ Breadth-first search is unweighted and guarantees the shortest path. This algori
 
 ### Greedy best-first search
 
-Greedy best-first search is unweighted and does not guarantee the shortest path. This algorithm works by always choosing the lowest-cost path through using a combination of depth-first search and breadth-first search algorithms. 
+Greedy best-first search is unweighted and does not guarantee the shortest path. This algorithm works by always choosing the lowest-cost path through a combination of depth-first search and breadth-first search algorithms.
 
 `Fun fact: Greedy best-first search is not optimal for pathfinding because it can get stuck in infinite loops.`
 
