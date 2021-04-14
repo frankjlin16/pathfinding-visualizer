@@ -39,23 +39,22 @@ const Button = tw(
 const DecoratorCircle3 = tw(SvgDecoratorCircle)`absolute bottom-0 right-0 w-80 h-80 transform translate-x-20 translate-y-32 text-primary-500 opacity-5`;
 const DecoratorCircle4 = tw(SvgDecoratorCircle)`absolute top-0 left-0 w-80 h-80 transform -translate-x-20 -translate-y-64 text-primary-500 opacity-5`;
 
-let START_NODE_COLUMN;
-let FINISH_NODE_COLUMN;
 const rows = 15;
 let columns;
+let START_NODE_ROW = 1;
+let START_NODE_COLUMN;
+let FINISH_NODE_ROW = rows - 2;
+let FINISH_NODE_COLUMN;
 let offsetWidth;
 const desiredSize = 40;
 let computedSize;
+let speed;
 
 class Pathfinder extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			grid: [],
-			START_NODE_ROW: 1,
-			START_NODE_COLUMN: START_NODE_COLUMN,
-			FINISH_NODE_ROW: rows - 2,
-			FINISH_NODE_COLUMN: FINISH_NODE_COLUMN,
 			row: 0,
 			column: 0,
 			isStart: false,
@@ -63,15 +62,14 @@ class Pathfinder extends Component {
 			isRunning: false,
 			isMouseDown: false,
 		};
-		this.updateGrid = this.updateGrid.bind(this);
 		this.actions = React.createRef();
+		this.updateGrid = this.updateGrid.bind(this);
 	}
 
 	componentDidMount() {
 		columns = Math.floor(this.actions.current.offsetWidth / desiredSize);
 		START_NODE_COLUMN = 1;
 		FINISH_NODE_COLUMN = columns - 2;
-		this.setState({ START_NODE_COLUMN: START_NODE_COLUMN, FINISH_NODE_COLUMN: FINISH_NODE_COLUMN });
 
 		this.updateGrid();
 		window.addEventListener("resize", this.updateGrid);
@@ -92,9 +90,9 @@ class Pathfinder extends Component {
 			columns = Math.floor(this.actions.current.offsetWidth / desiredSize);
 			if (START_NODE_COLUMN >= columns) START_NODE_COLUMN = columns - 1;
 			if (FINISH_NODE_COLUMN >= columns) FINISH_NODE_COLUMN = columns - 1;
-			this.setState({ START_NODE_COLUMN: START_NODE_COLUMN, FINISH_NODE_COLUMN: FINISH_NODE_COLUMN });
-
 			computedSize = (this.actions.current.offsetWidth - 2) / columns;
+			speed = (100 / this.actions.current.offsetWidth) * 200;
+
 			const grid = this.createGrid();
 			this.setState({ grid });
 		}
@@ -116,8 +114,8 @@ class Pathfinder extends Component {
 		return {
 			row,
 			column,
-			isStart: row === this.state.START_NODE_ROW && column === START_NODE_COLUMN,
-			isFinish: row === this.state.FINISH_NODE_ROW && column === FINISH_NODE_COLUMN,
+			isStart: row === START_NODE_ROW && column === START_NODE_COLUMN,
+			isFinish: row === FINISH_NODE_ROW && column === FINISH_NODE_COLUMN,
 			isWall: false,
 			isVisited: false,
 			distance: Infinity,
@@ -130,8 +128,8 @@ class Pathfinder extends Component {
 			this.clearGrid();
 			this.toggleRunning();
 			const { grid } = this.state;
-			const startNode = grid[this.state.START_NODE_ROW][this.state.START_NODE_COLUMN];
-			const finishNode = grid[this.state.FINISH_NODE_ROW][this.state.FINISH_NODE_COLUMN];
+			const startNode = grid[START_NODE_ROW][START_NODE_COLUMN];
+			const finishNode = grid[FINISH_NODE_ROW][FINISH_NODE_COLUMN];
 			let visitedNodes;
 			switch (algorithm) {
 				case "dijkstra":
@@ -205,14 +203,14 @@ class Pathfinder extends Component {
 			if (i === visitedNodes.length) {
 				setTimeout(() => {
 					this.animatePath(path);
-				}, 10 * i);
+				}, speed * i);
 				return;
 			}
 			setTimeout(() => {
 				const node = visitedNodes[i];
 				if (document.getElementById(`node-${node.row}-${node.column}`).className === "node")
 					document.getElementById(`node-${node.row}-${node.column}`).className = "node visited";
-			}, 10 * i);
+			}, speed * i);
 		}
 	}
 
@@ -225,7 +223,7 @@ class Pathfinder extends Component {
 				if (i + 1 === path.length) {
 					this.toggleRunning();
 				}
-			}, 50 * i);
+			}, speed * 2 * i);
 		}
 	}
 
@@ -263,28 +261,26 @@ class Pathfinder extends Component {
 			if (this.state.isMouseDown) {
 				const className = document.getElementById(`node-${row}-${column}`).className;
 				if (this.state.isStart) {
-					if (className !== "node finish" && className !== "node wall") {
+					if (className !== "node wall") {
 						const previousNode = this.state.grid[this.state.row][this.state.column];
 						previousNode.isStart = false;
-
 						const currentNode = this.state.grid[row][column];
 						currentNode.isStart = true;
 
-						START_NODE_COLUMN = column;
-						this.setState({ START_NODE_ROW: row, START_NODE_COLUMN: column });
 						this.setState({ row: row, column: column });
+						START_NODE_ROW = row;
+						START_NODE_COLUMN = column;
 					}
 				} else if (this.state.isFinish) {
-					if (className !== "node start" && className !== "node wall") {
+					if (className !== "node wall") {
 						const previousNode = this.state.grid[this.state.row][this.state.column];
 						previousNode.isFinish = false;
-
 						const currentNode = this.state.grid[row][column];
 						currentNode.isFinish = true;
 
-						FINISH_NODE_COLUMN = column;
-						this.setState({ FINISH_NODE_ROW: row, FINISH_NODE_COLUMN: column });
 						this.setState({ row: row, column: column });
+						FINISH_NODE_ROW = row;
+						FINISH_NODE_COLUMN = column;
 					}
 				} else {
 					const newGrid = this.toggleWall(this.state.grid, row, column);
@@ -318,7 +314,7 @@ class Pathfinder extends Component {
 		tutorialDescription1 = "Drag and drop the START and FINISH nodes to your desired location and create walls by selecting any UNVISITED nodes on the grid.",
 		tutorialDescription2 = "After, read about the different algorithms at the bottom of the page and decide which you want to use, then select its respective button to start visualizing. During use, refer to the node legend below to interpret any given state."
 	) {
-		const tutorial = { marginRight: "1rem", minWidth: desiredSize + "px", pointerEvents: "none" };
+		const tutorial = { border: "none", marginRight: "1rem", minWidth: desiredSize + "px", pointerEvents: "none" };
 		const { grid, isMouseDown } = this.state;
 		return (
 			<>
@@ -366,7 +362,7 @@ class Pathfinder extends Component {
 									</LegendNodesContainer>
 								</Row>
 							</Row>
-							<DecoratorCircleContainer>
+							<DecoratorCircleContainer css={tw`rounded-b-none`}>
 								<DecoratorCircle1 />
 								<DecoratorCircle2 />
 							</DecoratorCircleContainer>
@@ -419,7 +415,7 @@ class Pathfinder extends Component {
 									<Button css={tw`text-primary-500 hover:text-primary-600 bg-gray-100 hover:bg-gray-200`}>GENERATE MAZE</Button>
 								</ButtonsContainer>
 							</Row>
-							<DecoratorCircleContainer>
+							<DecoratorCircleContainer css={tw`rounded-t-none`}>
 								<DecoratorCircle3 />
 								<DecoratorCircle4 />
 							</DecoratorCircleContainer>
