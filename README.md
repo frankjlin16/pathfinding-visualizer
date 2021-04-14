@@ -19,9 +19,9 @@ I built this web-app because I was curious how map applications worked and wante
 
 ## How to use
 
-Before beginning, drag and drop the START and FINISH nodes to your desired location and create walls by selecting any UNVISITED nodes on the grid.<sup>1</sup> After, read about the different algorithms at the bottom of the page and decide which you want to use, then select its respective button to start visualizing. During use, refer to the node legend to interpret any given state.
+Before beginning, drag and drop the `START` and `FINISH` nodes to your desired location and create walls by selecting any `UNVISITED` nodes on the grid.<sup>1</sup> After, read about the different algorithms at the bottom of the page and decide which you want to use, then select its respective button to start visualizing. During use, refer to the node legend to interpret any given state.
 
-> 1.	START/FINISH node transposition not supported on mobile devices.
+> 1.	`START`/`FINISH` node transposition not supported on mobile devices.
 
 ## Algorithms
 
@@ -53,7 +53,7 @@ Greedy best-first search is unweighted and does not guarantee the shortest path.
 
 ### Dijkstra's algorithm
 
-Dijkstra’s algorithm is weighted and guarantees the shortest path. This algorithm works by constructing a lowest-cost path tree from the set of nodes that have the smallest distance from the START to the FINISH node.
+Dijkstra’s algorithm is weighted and guarantees the shortest path. This algorithm works by constructing a lowest-cost path tree from the set of nodes that have the smallest distance from the `START` to the `FINISH` node.
 
 `Fun fact: Computer scientist Edsger Dijkstra invented his famous algorithm in roughly twenty minutes at a café.`
 
