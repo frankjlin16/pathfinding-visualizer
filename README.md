@@ -1,6 +1,6 @@
 ## Pathfinding Visualizer
 
-This is a visualizer for multiple pathfinding algorithms. In essence, a pathfinding algorithm seeks to find the shortest path between two points. Additionally, this visualizer uses a recursive division algorithm to procedurally generate maze structures. As a result, navigational obstacles are introduced to the pathfinding algorithms, somewhat simulating a map application navigating the obstacles of a complex highway system or puzzling urban sprawls.
+This web-app visualizes algorithms that seek to find the shortest path between two points and employs recursive division to procedurally generate maze structures. Consequently, maze structures act as navigational obstacles for the pathfinding algorithms, somewhat simulating a map application navigating the obstacles of a complex highway system or puzzling urban sprawls.
 
 ## Motivation
 
@@ -17,21 +17,43 @@ I built this web-app because I was curious how map applications worked and wante
 7.	Interactivity with touch/pen input support
 8.	Optimized for low-end mobile devices
 
+## How to use
+
+Before beginning, drag and drop the START and FINISH nodes to your desired location and create walls by selecting any UNVISITED nodes on the grid.<sup>1</sup>  After, read about the different algorithms below and decide which you want to use, then select its respective button to start visualizing. During use, refer to the legend to understand any particular node’s state.
+
 ## Algorithms
 
-All the algorithms on this visualizer are adapted to a two-dimensional grid, where ninety degree turns and movements from one node to another have a calculated cost of one. Furthermore, algorithms are either weighted or unweighted, and their weightedness dictates consideration of the afore mentioned cost calculations. What’s more, not all algorithms guarantee the shortest path, so be sure to read their descriptions to understand capabilities.
+All the algorithms on this visualizer are adapted to a two-dimensional grid, where ninety degree turns and movements from one node to another have a cost of one. Furthermore, algorithms are either weighted or unweighted, and their weightedness dictates consideration of the afore mentioned costs. What’s more, not all algorithms guarantee the shortest path, so be sure to read their descriptions to understand capabilities.
+
+### Random walk
+
+Random walk is unweighted and does not guarantee the shortest path. This algorithm works by repeatedly choosing and exploring neighbor nodes at random or based on a probability distribution, keeping the resulting path in a list.
+
+Fun fact: Random walks have applications in nearly every major field of science.
 
 ### Depth-first search
 
-Depth-first search is unweighted and does not guarantee the shortest path. This algorithm works by beginning at the start node and exploring as far as possible along a given path and then backtracking until it finds an unexplored path to be explored.
+Depth-first search is unweighted and does not guarantee the shortest path. This algorithm works by exploring as far as possible along a given path and then backtracking until it finds an unexplored path to be explored.
 
-Fun fact: Depth-first search rarely returns the shortest path and is dreadfully inefficient at pathfinding!
+Fun fact: Depth-first search is inefficient at pathfinding because of its dreadful meandering!
+
+### Breadth-first search
+
+Breadth-first search is unweighted and guarantees the shortest path. This algorithm works by exploring all neighbor nodes at the present depth prior to exploring nodes at succeeding depth.
+
+Fun fact: Breadth-first search was invented in 1945 by computer scientist Konrad Zuse, in his rejected Ph.D. thesis.
+
+### Greedy best-first search
+
+Greedy best-first search is unweighted and does not guarantee the shortest path. This algorithm works by always choosing the lowest-cost path through using a combination of depth-first search and breadth-first search algorithms. 
+
+Fun fact: Greedy best-first search is not optimal for pathfinding because it can get stuck in infinite loops.
 
 ### Dijkstra's algorithm
 
-Dijkstra’s algorithm is weighted and guarantees the shortest path. This algorithm works by constructing a lowest-cost path tree through building a set of nodes that have the smallest distance from the start node to the finish node.
+Dijkstra’s algorithm is weighted and guarantees the shortest path. This algorithm works by constructing a lowest-cost path tree from the set of nodes that have the smallest distance from the START to the FINISH node.
 
-Fun fact: Edsger Dijkstra invented his famous algorithm in roughly twenty minutes at a café.
+Fun fact: Computer scientist Edsger Dijkstra invented his famous algorithm in roughly twenty minutes at a café.
 
 ### A* search
 
