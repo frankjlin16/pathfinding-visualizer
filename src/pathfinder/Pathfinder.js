@@ -24,7 +24,7 @@ const DecoratorBlob = styled(SvgDecoratorBlob)`
 // Tutorial
 const TutorialBackgroundContainer = tw(PrimaryBackgroundContainer)`rounded-t-lg`;
 const Subheading = tw(SubheadingBase)`mb-4 text-center`;
-const TutorialDescription = tw(SectionDescription)`w-full text-center text-secondary-500`;
+const Description = tw(SectionDescription)`w-full text-center text-secondary-500`;
 const LegendNodesContainer = tw.div`grid sm:grid-rows-3 sm:grid-cols-2 lg:grid-rows-2 lg:grid-cols-3 justify-center lg:justify-end mt-8`;
 const LegendNode = tw.a`w-full sm:w-auto text-sm sm:text-base px-6 py-3 sm:px-8 sm:py-4 lg:px-10 lg:py-5 mt-4 first:mt-0 sm:mt-0 rounded font-bold border border-transparent tracking-wide transition duration-300 focus:outline-none focus:shadow-outline text-secondary-500 flex items-center text-left`;
 const DecoratorCircle1 = tw(SvgDecoratorCircle)`absolute bottom-0 left-0 w-80 h-80 transform -translate-x-20 translate-y-32 text-primary-500 opacity-5`;
@@ -36,8 +36,6 @@ const ButtonsContainer = tw.div`grid sm:grid-rows-2 sm:grid-cols-2 lg:grid-rows-
 const Button = tw(
 	PrimaryButtonBase
 )`w-full lg:w-auto text-sm sm:text-base px-6 py-3 sm:px-8 sm:py-4 lg:px-10 lg:py-5 rounded font-bold border border-transparent tracking-wide transition duration-300 focus:outline-none focus:shadow-outline`;
-const PrimaryButton = tw(Button)``;
-const SecondaryButton = tw(Button)`text-primary-500 hover:text-primary-600 bg-gray-100 hover:bg-gray-200`;
 const DecoratorCircle3 = tw(SvgDecoratorCircle)`absolute bottom-0 right-0 w-80 h-80 transform translate-x-20 translate-y-32 text-primary-500 opacity-5`;
 const DecoratorCircle4 = tw(SvgDecoratorCircle)`absolute top-0 left-0 w-80 h-80 transform -translate-x-20 -translate-y-64 text-primary-500 opacity-5`;
 
@@ -317,7 +315,8 @@ class Pathfinder extends Component {
 
 	render(
 		subheading = "Tutorial",
-		tutorialDescription = "Before beginning, drag and drop the start and finish nodes to your desired location and create walls by selecting any unvisited nodes on the grid. After, read about the different algorithms at the bottom of the page and decide which you want to use, then select its respective button to start visualizing. During use, refer to the legend below to understand any particular node’s state."
+		tutorialDescription1 = "Drag and drop the START and FINISH nodes to your desired location and create walls by selecting any UNVISITED nodes on the grid.",
+		tutorialDescription2 = "After, read about the different algorithms at the bottom of the page and decide which you want to use, then select its respective button to start visualizing. During use, refer to the node legend below to interpret any given state."
 	) {
 		const tutorial = { marginRight: "1rem", minWidth: desiredSize + "px", pointerEvents: "none" };
 		const { grid, isMouseDown } = this.state;
@@ -330,7 +329,12 @@ class Pathfinder extends Component {
 								<Row>
 									<Container>
 										{subheading && <Subheading>{subheading}</Subheading>}
-										{tutorialDescription && <TutorialDescription>{tutorialDescription}</TutorialDescription>}
+										{tutorialDescription1 && tutorialDescription2 && (
+											<Description>
+												{tutorialDescription1}
+												<sup>1</sup> {tutorialDescription2}
+											</Description>
+										)}
 									</Container>
 								</Row>
 								<Row>
@@ -400,19 +404,19 @@ class Pathfinder extends Component {
 						<ActionsBackgroundContainer ref={this.actions}>
 							<Row>
 								<ButtonsContainer>
-									<PrimaryButton>RANDOM WALK</PrimaryButton>
-									<PrimaryButton>DEPTH-FIRST</PrimaryButton>
-									<PrimaryButton>BREADTH-FIRST</PrimaryButton>
-									<PrimaryButton>GREEDY BEST</PrimaryButton>
-									<PrimaryButton onClick={() => this.visualize("dijkstra")}>DIJKSTRA</PrimaryButton>
-									<PrimaryButton>A*</PrimaryButton>
-									<PrimaryButton onClick={() => this.clearGrid()} css={tw`bg-red-500 hover:bg-red-600`}>
+									<Button>RANDOM WALK</Button>
+									<Button>DEPTH-FIRST</Button>
+									<Button>BREADTH-FIRST</Button>
+									<Button>GREEDY BEST</Button>
+									<Button onClick={() => this.visualize("dijkstra")}>DIJKSTRA</Button>
+									<Button>A*</Button>
+									<Button onClick={() => this.clearGrid()} css={tw`bg-red-500 hover:bg-red-600`}>
 										CLEAR GRID
-									</PrimaryButton>
-									<PrimaryButton onClick={() => this.clearWalls()} css={tw`bg-yellow-500 hover:bg-yellow-600`}>
+									</Button>
+									<Button onClick={() => this.clearWalls()} css={tw`bg-secondary-500 hover:bg-secondary-600`}>
 										CLEAR WALLS
-									</PrimaryButton>
-									<SecondaryButton>GENERATE MAZE</SecondaryButton>
+									</Button>
+									<Button css={tw`text-primary-500 hover:text-primary-600 bg-gray-100 hover:bg-gray-200`}>GENERATE MAZE</Button>
 								</ButtonsContainer>
 							</Row>
 							<DecoratorCircleContainer>
