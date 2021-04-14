@@ -12,16 +12,17 @@ I built this web-app because I was curious how map applications worked and wante
 2.	One procedural maze generation algorithm
 3.	Pixel-perfect adapting grid dimensions
 4.	Fully responsive design with [Tailwind CSS](https://github.com/tailwindlabs/tailwindcss)
-5.	Drag/droppable start and finish nodes
-6.	Wall node creation for extended control
-7.	Interactivity with touch/pen input support
-8.	Optimized for low-end mobile devices
+5.	Scaling viewport-dependent execution speed
+6.	Drag/droppable start and finish nodes
+7.	Wall node creation for extended control
+8.	Interactivity with touch/pen input support
+9.	Optimized for low-end mobile devices
 
 ## Usage
 
 Drag and drop the `START` and `FINISH` nodes to your desired location and create walls by selecting any `UNVISITED` nodes on the grid.<sup>1</sup> After, read about the different algorithms at the bottom of the page and decide which you want to use, then select its respective button to start visualizing. During use, refer to the node legend to interpret any given state.
 
-> 1.	`START`/`FINISH` node transposition not supported on mobile devices.
+1.	`START`/`FINISH` node transposition not supported on mobile devices.
 
 ## Algorithms
 
@@ -29,7 +30,7 @@ All the algorithms on this visualizer are adapted to a two-dimensional grid, whe
 
 ### Random walk
 
-Random walk is unweighted and does not guarantee the shortest path. This algorithm works by repeatedly choosing and exploring neighbor nodes at random or based on a probability distribution, keeping the resulting path in a list.
+Random walk is unweighted and does not guarantee the shortest path. This algorithm works by repeatedly choosing and exploring neighbor nodes at random or based on a probability distribution.
 
 `Fun fact: Random walks have applications in nearly every major field of science.`
 
@@ -47,7 +48,7 @@ Breadth-first search is unweighted and guarantees the shortest path. This algori
 
 ### Greedy best-first search
 
-Greedy best-first search is unweighted and does not guarantee the shortest path. This algorithm works by always choosing the lowest-cost path through using a combination of depth-first search and breadth-first search algorithms. 
+Greedy best-first search is unweighted and does not guarantee the shortest path. This algorithm works by always choosing the lowest-cost path through a combination of depth-first search and breadth-first search algorithms.
 
 `Fun fact: Greedy best-first search is not optimal for pathfinding because it can get stuck in infinite loops.`
 
