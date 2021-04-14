@@ -17,7 +17,7 @@ I built this web-app because I was curious how map applications worked and wante
 7.	Interactivity with touch/pen input support
 8.	Optimized for low-end mobile devices
 
-## How to use
+## Usage
 
 Drag and drop the `START` and `FINISH` nodes to your desired location and create walls by selecting any `UNVISITED` nodes on the grid.<sup>1</sup> After, read about the different algorithms at the bottom of the page and decide which you want to use, then select its respective button to start visualizing. During use, refer to the node legend to interpret any given state.
 
