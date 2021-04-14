@@ -36,11 +36,8 @@ const Card = styled.a`
 	.description {
 		${tw`mt-4 text-sm font-medium text-secondary-100`}
 	}
-	.funFact {
-		${tw`mt-4 text-sm font-medium text-secondary-100 italic`}
-	}
 	.link {
-		${tw`mt-auto inline-flex items-center pt-5 text-sm font-bold text-primary-300 leading-none hocus:text-primary-900 transition duration-300`}
+		${tw`inline-flex items-center pt-5 text-sm font-bold text-primary-300 leading-none hocus:text-primary-900 transition duration-300`}
 		.icon {
 			${tw`ml-2 w-4`}
 		}
@@ -55,38 +52,41 @@ export default ({
 		{
 			imageSrc: mapIcon1,
 			title: "Random walk",
-			description: "",
-			funFact: "Fun fact: ",
-			url: "",
+			description:
+				"Random walk is unweighted and does not guarantee the shortest path. This algorithm works by repeatedly choosing and exploring neighbor nodes at random or based on a probability distribution, keeping the resulting path in a list.",
+			funFact: "Fun fact: Random walks have applications in nearly every major field of science.",
+			url: "https://en.wikipedia.org/wiki/Random_walk",
 		},
 		{
 			imageSrc: mapIcon2,
 			title: "Depth-first search",
 			description:
-				"Depth-first search is unweighted and does not guarantee the shortest path. This algorithm works by beginning at the start node and exploring as far as possible along a given path and then backtracking until it finds an unexplored path to be explored.",
-			funFact: "Fun fact: Depth-first search rarely returns the shortest path and is dreadfully inefficient at pathfinding!",
+				"Depth-first search is unweighted and does not guarantee the shortest path. This algorithm works by exploring as far as possible along a given path and then backtracking until it finds an unexplored path to be explored.",
+			funFact: "Fun fact: Depth-first search is inefficient at pathfinding because of its dreadful meandering!",
 			url: "https://en.wikipedia.org/wiki/Depth-first_search",
 		},
 		{
 			imageSrc: mapIcon3,
 			title: "Breadth-first search",
-			description: "",
-			funFact: "Fun fact: ",
-			url: "",
+			description:
+				"Breadth-first search is unweighted and guarantees the shortest path. This algorithm works by exploring all neighbor nodes at the present depth prior to exploring nodes at succeeding depth.",
+			funFact: "Fun fact: Breadth-first search was invented in 1945 by computer scientist Konrad Zuse, in his rejected Ph.D. thesis.",
+			url: "https://en.wikipedia.org/wiki/Breadth-first_search",
 		},
 		{
 			imageSrc: mapIcon4,
 			title: "Greedy best-first search",
-			description: "",
-			funFact: "Fun fact: ",
-			url: "",
+			description:
+				"Greedy best-first search is unweighted and does not guarantee the shortest path. This algorithm works by always choosing the lowest-cost path through using a combination of depth-first search and breadth-first search algorithms.",
+			funFact: "Fun fact: Greedy best-first search is not optimal for pathfinding because it can get stuck in infinite loops.",
+			url: "https://en.wikipedia.org/wiki/Best-first_search",
 		},
 		{
 			imageSrc: mapIcon5,
 			title: "Dijkstra’s algorithm",
 			description:
-				"Dijkstra’s algorithm is weighted and guarantees the shortest path. This algorithm works by constructing a lowest-cost path tree through building a set of nodes that have the smallest distance from the start node to the finish node.",
-			funFact: "Fun fact: Edsger Dijkstra invented his famous algorithm in roughly twenty minutes at a café.",
+				"Dijkstra’s algorithm is weighted and guarantees the shortest path. This algorithm works by constructing a lowest-cost path tree from the set of nodes that have the smallest distance from the START to the FINISH node.",
+			funFact: "Fun fact: Computer scientist Edsger Dijkstra invented his famous algorithm in roughly twenty minutes at a café.",
 			url: "https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm",
 		},
 		{
@@ -100,7 +100,7 @@ export default ({
 	],
 	linkText = "Learn more",
 	heading = "Meet the algorithms.",
-	description = "All the algorithms on this visualizer are adapted to a two-dimensional grid, where ninety degree turns and movements from one node to another have a calculated cost of one. Furthermore, algorithms are either weighted or unweighted, and their weightedness dictates consideration of the afore mentioned cost calculations. What’s more, not all algorithms guarantee the shortest path, so be sure to read their descriptions to understand capabilities.",
+	description = "All the algorithms on this visualizer are adapted to a two-dimensional grid, where ninety degree turns and movements from one node to another have a cost of one. Furthermore, algorithms are either weighted or unweighted, and their weightedness dictates consideration of the afore mentioned costs. What’s more, not all algorithms guarantee the shortest path, so be sure to read their descriptions to understand capabilities.",
 	imageContainerCss = null,
 	imageCss = null,
 }) => {
@@ -118,13 +118,13 @@ export default ({
 								</span>
 								<span className="title">{card.title}</span>
 								<p className="description">{card.description}</p>
-								<p className="funFact">{card.funFact}</p>
 								{linkText && (
 									<span className="link">
 										<span>{linkText}</span>
 										<ArrowRightIcon className="icon" />
 									</span>
 								)}
+								<p className="description">{card.funFact}</p>
 							</Card>
 						</Column>
 					))}
