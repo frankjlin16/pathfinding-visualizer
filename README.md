@@ -28,19 +28,16 @@ All the algorithms on this visualizer are adapted to a two-dimensional grid, whe
 ### Random walk
 
 Random walk is unweighted and does not guarantee the shortest path. This algorithm works by repeatedly choosing and exploring neighbor nodes at random or based on a probability distribution, keeping the resulting path in a list.
-
 `Fun fact: Random walks have applications in nearly every major field of science.`
 
 ### Depth-first search
 
 Depth-first search is unweighted and does not guarantee the shortest path. This algorithm works by exploring as far as possible along a given path and then backtracking until it finds an unexplored path to be explored.
-
 `Fun fact: Depth-first search is inefficient at pathfinding because of its dreadful meandering!`
 
 ### Breadth-first search
 
 Breadth-first search is unweighted and guarantees the shortest path. This algorithm works by exploring all neighbor nodes at the present depth prior to exploring nodes at succeeding depth.
-
 `Fun fact: Breadth-first search was invented in 1945 by computer scientist Konrad Zuse, in his rejected Ph.D. thesis.`
 
 ### Greedy best-first search
@@ -60,6 +57,8 @@ Dijkstra’s algorithm is weighted and guarantees the shortest path. This algori
 A* (A-star) search is weighted and guarantees the shortest path. Like Dijkstra’s algorithm, A* constructs a lowest-cost path tree. However, A* uses heuristics that reduce computation time by planning each step with informed decisions.
 
 `Fun fact: Google Maps uses an A* search coupled with collections of highly advanced heuristics.`
+
+1.	START/FINISH node transposition not supported on mobile devices.
 
 ## Credits
 
