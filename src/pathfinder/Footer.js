@@ -4,13 +4,14 @@ import styled from "styled-components";
 import tw from "twin.macro";
 import { Container as ContainerBase } from "components/misc/Layouts.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { css } from "styled-components/macro"; //eslint-disable-line
 import { faCloud } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 const Container = tw(ContainerBase)`bg-gray-900 text-gray-100 -mx-8 -mb-8`;
 const Content = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
 const Row = tw.div`flex items-center justify-center flex-col px-8`;
-const LogoContainer = tw.div`flex items-center justify-center md:justify-start flex-col sm:flex-row`;
+const LogoContainer = tw.div`flex items-center justify-center md:justify-start flex-col sm:flex-row mt-10`;
 const LogoImg = tw.img`w-8`;
 const LogoText = tw.h5`ml-0 sm:ml-2 mt-2 sm:mt-0 text-2xl font-black tracking-wider text-center`;
 const SocialLinksContainer = tw.div`mt-10`;
@@ -27,6 +28,7 @@ export default () => {
 		<Container>
 			<Content>
 				<Row>
+					<CopyrightText css={tw`mt-0`}>1. START/FINISH node transposition not supported on mobile devices.</CopyrightText>
 					<LogoContainer>
 						<LogoImg src={logo} />
 						<LogoText>Pathfinding Visualizer</LogoText>
