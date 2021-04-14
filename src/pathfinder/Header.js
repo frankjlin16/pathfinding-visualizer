@@ -20,7 +20,7 @@ const DecoratorBlob = styled(SvgDecoratorBlob)`
 export default ({
 	heading = "Pathfinding Visualizer",
 	subheading = "by Alek Broman | 1.0.0",
-	description = "This is a visualizer for multiple pathfinding algorithms. In essence, a pathfinding algorithm seeks to find the shortest path between two points. Additionally, this visualizer uses a recursive division algorithm to procedurally generate maze structures. As a result, navigational obstacles are introduced to the pathfinding algorithms, somewhat simulating a map application navigating the obstacles of a complex highway system or puzzling urban sprawls.",
+	description = "This web-app visualizes algorithms that seek to find the shortest path between two points and employs recursive division to procedurally generate maze structures. Consequently, maze structures act as navigational obstacles for the pathfinding algorithms, somewhat simulating a map application navigating the obstacles of a complex highway system or puzzling urban sprawls.",
 }) => {
 	return (
 		<Container>
