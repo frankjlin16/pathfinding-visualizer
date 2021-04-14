@@ -37,8 +37,8 @@ function getNeighbors(node, grid) {
 	const neighbors = [];
 	const { row, column } = node;
 	if (row !== 0) neighbors.push(grid[row - 1][column]);
-	if (column !== grid[0].length - 1) neighbors.push(grid[row][column + 1]);
 	if (row !== grid.length - 1) neighbors.push(grid[row + 1][column]);
 	if (column !== 0) neighbors.push(grid[row][column - 1]);
+	if (column !== grid[0].length - 1) neighbors.push(grid[row][column + 1]);
 	return neighbors.filter((neighbor) => !neighbor.isVisited);
 }
