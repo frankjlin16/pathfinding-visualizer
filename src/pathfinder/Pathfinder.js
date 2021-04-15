@@ -57,6 +57,8 @@ let offsetWidth;
 const desiredSize = 40;
 let computedSize;
 let speed;
+let cancel;
+let timers = [];
 
 class Pathfinder extends Component {
 	constructor(props) {
@@ -132,52 +134,56 @@ class Pathfinder extends Component {
 	};
 
 	visualize(algorithm) {
-		if (!this.state.isRunning) {
-			this.clearGrid();
+		if (this.state.isRunning) {
+			for (const timer of timers) clearTimeout(timer);
+			cancel = true;
+		} else {
 			this.toggleRunning();
-			if (isMobile) {
-				document.getElementById("grid").scrollIntoView({ behavior: "smooth" });
-			}
-			const { grid } = this.state;
-			const startNode = grid[START_NODE_ROW][START_NODE_COLUMN];
-			const finishNode = grid[FINISH_NODE_ROW][FINISH_NODE_COLUMN];
-			let visitedNodes;
-			let random = false;
-			switch (algorithm) {
-				case "randomWalk":
-					visitedNodes = randomWalk(grid, startNode, finishNode);
-					random = true;
-					break;
-				case "depthFirst":
-					visitedNodes = depthFirst(grid, startNode, finishNode);
-					break;
-				case "breadthFirst":
-					visitedNodes = breadthFirst(grid, startNode, finishNode);
-					break;
-				case "greedyBest":
-					visitedNodes = greedyBest(grid, startNode, finishNode);
-					break;
-				case "dijkstra":
-					visitedNodes = dijkstra(grid, startNode, finishNode);
-					break;
-				case "aStar":
-					visitedNodes = aStar(grid, startNode, finishNode);
-					break;
-				case "maze":
-					visitedNodes = maze();
-					break;
-				default:
-					break;
-			}
-			let path;
-			if (random) path = [];
-			else path = this.getPath(finishNode);
-			this.animate(visitedNodes, path);
 		}
+		this.clearGrid();
+		if (isMobile) {
+			document.getElementById("grid").scrollIntoView({ behavior: "smooth" });
+		}
+		const { grid } = this.state;
+		const startNode = grid[START_NODE_ROW][START_NODE_COLUMN];
+		const finishNode = grid[FINISH_NODE_ROW][FINISH_NODE_COLUMN];
+		let visitedNodes;
+		let random = false;
+		switch (algorithm) {
+			case "randomWalk":
+				visitedNodes = randomWalk(grid, startNode, finishNode);
+				random = true;
+				break;
+			case "depthFirst":
+				visitedNodes = depthFirst(grid, startNode, finishNode);
+				break;
+			case "breadthFirst":
+				visitedNodes = breadthFirst(grid, startNode, finishNode);
+				break;
+			case "greedyBest":
+				visitedNodes = greedyBest(grid, startNode, finishNode);
+				break;
+			case "dijkstra":
+				visitedNodes = dijkstra(grid, startNode, finishNode);
+				break;
+			case "aStar":
+				visitedNodes = aStar(grid, startNode, finishNode);
+				break;
+			case "maze":
+				visitedNodes = maze();
+				break;
+			default:
+				break;
+		}
+		let path;
+		if (random) path = [];
+		else path = this.getPath(finishNode);
+		this.animate(visitedNodes, path);
 	}
 
 	clearGrid() {
-		if (!this.state.isRunning) {
+		if (!this.state.isRunning || cancel) {
+			cancel = false;
 			for (const row of this.state.grid) {
 				for (const node of row) {
 					let className = document.getElementById(`node-${node.row}-${node.column}`).className;
@@ -199,11 +205,16 @@ class Pathfinder extends Component {
 					}
 				}
 			}
+		} else {
+			for (const timer of timers) clearTimeout(timer);
+			this.toggleRunning();
+			cancel = true;
+			this.clearGrid();
 		}
 	}
 
 	clearWalls() {
-		if (!this.state.isRunning) {
+		if (!this.state.isRunning || cancel) {
 			this.clearGrid();
 			for (const row of this.state.grid) {
 				for (const node of row) {
@@ -214,6 +225,11 @@ class Pathfinder extends Component {
 					}
 				}
 			}
+		} else {
+			for (const timer of timers) clearTimeout(timer);
+			this.toggleRunning();
+			cancel = true;
+			this.clearWalls();
 		}
 	}
 
@@ -234,23 +250,29 @@ class Pathfinder extends Component {
 	animate(visitedNodes, path) {
 		for (let i = 0; i <= visitedNodes.length; ++i) {
 			if (i === visitedNodes.length) {
-				setTimeout(() => {
-					this.animatePath(path);
-				}, speed * i);
+				timers.push(
+					setTimeout(() => {
+						this.animatePath(path);
+					}, speed * i)
+				);
 				return;
 			}
-			setTimeout(() => {
-				const node = visitedNodes[i];
-				if (
-					document.getElementById(`node-${node.row}-${node.column}`).className === "node" ||
-					document.getElementById(`node-${node.row}-${node.column}`).className === "node visited"
-				) {
-					document.getElementById(`node-${node.row}-${node.column}`).className = "node";
-					setTimeout(() => {
-						document.getElementById(`node-${node.row}-${node.column}`).className = "node visited";
-					});
-				}
-			}, speed * i);
+			timers.push(
+				setTimeout(() => {
+					const node = visitedNodes[i];
+					if (
+						document.getElementById(`node-${node.row}-${node.column}`).className === "node" ||
+						document.getElementById(`node-${node.row}-${node.column}`).className === "node visited"
+					) {
+						document.getElementById(`node-${node.row}-${node.column}`).className = "node";
+						timers.push(
+							setTimeout(() => {
+								document.getElementById(`node-${node.row}-${node.column}`).className = "node visited";
+							})
+						);
+					}
+				}, speed * i)
+			);
 		}
 	}
 
@@ -258,14 +280,16 @@ class Pathfinder extends Component {
 		if (path.length === 0) this.toggleRunning();
 		else {
 			for (let i = 0; i < path.length; ++i) {
-				setTimeout(() => {
-					const node = path[i];
-					if (document.getElementById(`node-${node.row}-${node.column}`).className === "node visited")
-						document.getElementById(`node-${node.row}-${node.column}`).className = "node path";
-					if (i + 1 === path.length) {
-						this.toggleRunning();
-					}
-				}, speed * 3 * i);
+				timers.push(
+					setTimeout(() => {
+						const node = path[i];
+						if (document.getElementById(`node-${node.row}-${node.column}`).className === "node visited")
+							document.getElementById(`node-${node.row}-${node.column}`).className = "node path";
+						if (i + 1 === path.length) {
+							this.toggleRunning();
+						}
+					}, speed * 2 * i)
+				);
 			}
 		}
 	}
@@ -355,7 +379,8 @@ class Pathfinder extends Component {
 	render(
 		subheading = "Tutorial",
 		tutorialDescription1 = "Drag and drop the START and FINISH nodes to your desired location and create walls by selecting any UNVISITED nodes on the grid.",
-		tutorialDescription2 = "After, read about the different algorithms at the bottom of the page and decide which you want to use, then select its respective button to start visualizing. During use, refer to the node legend below to interpret any given state."
+		tutorialDescription2 = "After, read about the different algorithms at the bottom of the page and decide which you want to use, then select its respective button to start visualizing.",
+		tutorialDescription3 = "During use, refer to the node legend below to interpret any given state."
 	) {
 		const tutorial = { border: "none", marginRight: "1rem", minWidth: desiredSize + "px", pointerEvents: "none" };
 		const { grid, isMouseDown } = this.state;
@@ -368,10 +393,11 @@ class Pathfinder extends Component {
 								<Row>
 									<Container>
 										{subheading && <Subheading>{subheading}</Subheading>}
-										{tutorialDescription1 && tutorialDescription2 && (
+										{tutorialDescription1 && tutorialDescription2 && tutorialDescription3 && (
 											<Description>
 												{tutorialDescription1}
 												<sup>1</sup> {tutorialDescription2}
+												<sup>2</sup> {tutorialDescription3}
 											</Description>
 										)}
 									</Container>
