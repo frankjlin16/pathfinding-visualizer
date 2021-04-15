@@ -379,7 +379,7 @@ class Pathfinder extends Component {
 	render(
 		subheading = "Tutorial",
 		tutorialDescription1 = "Drag and drop the START and FINISH nodes to your desired location and create walls by selecting any UNVISITED nodes on the grid.",
-		tutorialDescription2 = "After, read about the different algorithms at the bottom of the page and decide which you want to use, then select its respective button to start visualizing.",
+		tutorialDescription2 = "After, read about the different algorithms at the bottom of the page and decide which you want to use, then select its respective button to begin visualizing.",
 		tutorialDescription3 = "During use, refer to the node legend below to interpret any given state."
 	) {
 		const tutorial = { border: "none", marginRight: "1rem", minWidth: desiredSize + "px", pointerEvents: "none" };
