@@ -1,5 +1,6 @@
 import "./Pathfinder.css";
 
+import smoothscroll from "smoothscroll-polyfill";
 import styled from "styled-components";
 import tw from "twin.macro";
 import React, { Component } from "react";
@@ -10,9 +11,16 @@ import { Subheading as SubheadingBase } from "components/misc/Headings.js";
 import { ReactComponent as SvgDecoratorBlob } from "images/svg-decorator-blob-7.svg";
 import { ReactComponent as SvgDecoratorCircle } from "images/svg-decorator-blob-9.svg";
 import { css } from "styled-components/macro"; //eslint-disable-line
+import { isMobile } from "react-device-detect";
 
 import Node from "./Node";
+import { aStar } from "./algorithms/a-star";
+import { breadthFirst } from "./algorithms/breadth-first";
+import { depthFirst } from "./algorithms/depth-first";
 import { dijkstra } from "./algorithms/dijkstra";
+import { greedyBest } from "./algorithms/greedy-best";
+import { maze } from "./algorithms/maze";
+import { randomWalk } from "./algorithms/random-walk";
 
 const PrimaryBackgroundContainer = tw.div`py-16 lg:py-20 bg-purple-200 relative`;
 const Row = tw.div`px-4 sm:px-16 mx-auto flex justify-center items-center relative z-10 flex-col text-center lg:text-left`;
@@ -127,13 +135,35 @@ class Pathfinder extends Component {
 		if (!this.state.isRunning) {
 			this.clearGrid();
 			this.toggleRunning();
+			if (isMobile) {
+				var element = document.getElementById("grid");
+				element.scrollIntoView({ behavior: "smooth" });
+			}
 			const { grid } = this.state;
 			const startNode = grid[START_NODE_ROW][START_NODE_COLUMN];
 			const finishNode = grid[FINISH_NODE_ROW][FINISH_NODE_COLUMN];
 			let visitedNodes;
 			switch (algorithm) {
+				case "randomWalk":
+					visitedNodes = randomWalk(grid, startNode, finishNode);
+					break;
+				case "depthFirst":
+					visitedNodes = depthFirst(grid, startNode, finishNode);
+					break;
+				case "breadthFirst":
+					visitedNodes = breadthFirst(grid, startNode, finishNode);
+					break;
+				case "greedyBest":
+					visitedNodes = greedyBest(grid, startNode, finishNode);
+					break;
 				case "dijkstra":
 					visitedNodes = dijkstra(grid, startNode, finishNode);
+					break;
+				case "aStar":
+					visitedNodes = aStar(grid, startNode, finishNode);
+					break;
+				case "maze":
+					visitedNodes = maze();
 					break;
 				default:
 					break;
@@ -223,7 +253,7 @@ class Pathfinder extends Component {
 				if (i + 1 === path.length) {
 					this.toggleRunning();
 				}
-			}, speed * 2 * i);
+			}, speed * 3 * i);
 		}
 	}
 
@@ -371,7 +401,7 @@ class Pathfinder extends Component {
 				</Container>
 				<Container>
 					<ContentWithPaddingXl css={tw`pt-0`}>
-						<div className="grid" onMouseLeave={() => this.handleMouseUp()}>
+						<div id="grid" className="grid" onMouseLeave={() => this.handleMouseUp()}>
 							{grid.map((row, rowIndex) => {
 								return (
 									<div key={rowIndex}>
@@ -400,19 +430,21 @@ class Pathfinder extends Component {
 						<ActionsBackgroundContainer ref={this.actions}>
 							<Row>
 								<ButtonsContainer>
-									<Button>RANDOM WALK</Button>
-									<Button>DEPTH-FIRST</Button>
-									<Button>BREADTH-FIRST</Button>
-									<Button>GREEDY BEST</Button>
+									<Button onClick={() => this.visualize("randomWalk")}>RANDOM WALK</Button>
+									<Button onClick={() => this.visualize("depthFirst")}>DEPTH-FIRST</Button>
+									<Button onClick={() => this.visualize("breadthFirst")}>BREADTH-FIRST</Button>
+									<Button onClick={() => this.visualize("greedyBest")}>GREEDY BEST</Button>
 									<Button onClick={() => this.visualize("dijkstra")}>DIJKSTRA</Button>
-									<Button>A*</Button>
+									<Button onClick={() => this.visualize("aStar")}>A*</Button>
 									<Button onClick={() => this.clearGrid()} css={tw`bg-red-500 hover:bg-red-600`}>
 										CLEAR GRID
 									</Button>
 									<Button onClick={() => this.clearWalls()} css={tw`bg-secondary-500 hover:bg-secondary-600`}>
 										CLEAR WALLS
 									</Button>
-									<Button css={tw`text-primary-500 hover:text-primary-600 bg-gray-100 hover:bg-gray-200`}>GENERATE MAZE</Button>
+									<Button onClick={() => this.visualize("maze")} css={tw`text-primary-500 hover:text-primary-600 bg-gray-100 hover:bg-gray-200`}>
+										GENERATE MAZE
+									</Button>
 								</ButtonsContainer>
 							</Row>
 							<DecoratorCircleContainer css={tw`rounded-t-none`}>
@@ -427,5 +459,7 @@ class Pathfinder extends Component {
 		);
 	}
 }
+
+smoothscroll.polyfill();
 
 export default Pathfinder;
