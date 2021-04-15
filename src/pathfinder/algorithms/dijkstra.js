@@ -10,7 +10,11 @@ export function dijkstra(grid, startNode, finishNode) {
 			if (closestNode === finishNode) return visitedNodes;
 			closestNode.isVisited = true;
 			visitedNodes.push(closestNode);
-			updateNeighbors(closestNode, grid);
+			const neighbors = getNeighbors(closestNode, grid);
+			for (const neighbor of neighbors) {
+				neighbor.distance = closestNode.distance + 1;
+				neighbor.previousNode = closestNode;
+			}
 		}
 	}
 }
@@ -23,14 +27,6 @@ function getNodes(grid) {
 		}
 	}
 	return nodes;
-}
-
-function updateNeighbors(node, grid) {
-	const neighbors = getNeighbors(node, grid);
-	for (const neighbor of neighbors) {
-		neighbor.distance = node.distance + 1;
-		neighbor.previousNode = node;
-	}
 }
 
 function getNeighbors(node, grid) {
