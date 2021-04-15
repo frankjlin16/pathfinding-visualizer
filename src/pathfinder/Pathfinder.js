@@ -136,16 +136,17 @@ class Pathfinder extends Component {
 			this.clearGrid();
 			this.toggleRunning();
 			if (isMobile) {
-				var element = document.getElementById("grid");
-				element.scrollIntoView({ behavior: "smooth" });
+				document.getElementById("grid").scrollIntoView({ behavior: "smooth" });
 			}
 			const { grid } = this.state;
 			const startNode = grid[START_NODE_ROW][START_NODE_COLUMN];
 			const finishNode = grid[FINISH_NODE_ROW][FINISH_NODE_COLUMN];
 			let visitedNodes;
+			let random = false;
 			switch (algorithm) {
 				case "randomWalk":
 					visitedNodes = randomWalk(grid, startNode, finishNode);
+					random = true;
 					break;
 				case "depthFirst":
 					visitedNodes = depthFirst(grid, startNode, finishNode);
@@ -168,7 +169,9 @@ class Pathfinder extends Component {
 				default:
 					break;
 			}
-			const path = this.getPath(finishNode);
+			let path;
+			if (random) path = [];
+			else path = this.getPath(finishNode);
 			this.animate(visitedNodes, path);
 		}
 	}
@@ -238,22 +241,32 @@ class Pathfinder extends Component {
 			}
 			setTimeout(() => {
 				const node = visitedNodes[i];
-				if (document.getElementById(`node-${node.row}-${node.column}`).className === "node")
-					document.getElementById(`node-${node.row}-${node.column}`).className = "node visited";
+				if (
+					document.getElementById(`node-${node.row}-${node.column}`).className === "node" ||
+					document.getElementById(`node-${node.row}-${node.column}`).className === "node visited"
+				) {
+					document.getElementById(`node-${node.row}-${node.column}`).className = "node";
+					setTimeout(() => {
+						document.getElementById(`node-${node.row}-${node.column}`).className = "node visited";
+					});
+				}
 			}, speed * i);
 		}
 	}
 
 	animatePath(path) {
-		for (let i = 0; i < path.length; ++i) {
-			setTimeout(() => {
-				const node = path[i];
-				if (document.getElementById(`node-${node.row}-${node.column}`).className === "node visited")
-					document.getElementById(`node-${node.row}-${node.column}`).className = "node path";
-				if (i + 1 === path.length) {
-					this.toggleRunning();
-				}
-			}, speed * 3 * i);
+		if (path.length === 0) this.toggleRunning();
+		else {
+			for (let i = 0; i < path.length; ++i) {
+				setTimeout(() => {
+					const node = path[i];
+					if (document.getElementById(`node-${node.row}-${node.column}`).className === "node visited")
+						document.getElementById(`node-${node.row}-${node.column}`).className = "node path";
+					if (i + 1 === path.length) {
+						this.toggleRunning();
+					}
+				}, speed * 3 * i);
+			}
 		}
 	}
 
