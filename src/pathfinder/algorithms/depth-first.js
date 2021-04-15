@@ -8,10 +8,10 @@ export function depthFirst(grid, startNode, finishNode) {
 			if (closestNode === finishNode) return visitedNodes;
 			closestNode.isVisited = true;
 			visitedNodes.push(closestNode);
-			let neighbors = getNeighbors(closestNode, grid);
-			for (let neighbor of neighbors) {
-				neighbor.previousNode = closestNode;
+			const neighbors = getNeighbors(closestNode, grid);
+			for (const neighbor of neighbors) {
 				unvisitedNodes.unshift(neighbor);
+				neighbor.previousNode = closestNode;
 			}
 		}
 	}
