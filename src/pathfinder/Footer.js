@@ -29,6 +29,7 @@ export default () => {
 			<Content>
 				<Row>
 					<CopyrightText css={tw`mt-0`}>1. START/FINISH node transposition not supported on mobile devices.</CopyrightText>
+					<CopyrightText css={tw`mt-0`}>2. Random walk path visualization not supported, only searching.</CopyrightText>
 					<LogoContainer>
 						<LogoImg src={logo} />
 						<LogoText>Pathfinding Visualizer</LogoText>
