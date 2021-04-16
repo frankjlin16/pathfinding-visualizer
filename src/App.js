@@ -10,7 +10,7 @@ import React from "react";
 
 function App() {
 	return (
-		<AnimationRevealPage>
+		<AnimationRevealPage disabled>
 			<Header />
 			<Pathfinder />
 			<Algorithms />
