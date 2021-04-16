@@ -11,7 +11,7 @@ export function breadthFirst(grid, startNode, finishNode) {
 			const neighbors = getNeighbors(closestNode, grid);
 			for (const neighbor of neighbors) {
 				neighbor.previousNode = closestNode;
-				if (isNeighborVisited(neighbor, unvisitedNodes)) unvisitedNodes.push(neighbor);
+				if (isVisited(neighbor, unvisitedNodes)) unvisitedNodes.push(neighbor);
 			}
 		}
 	}
@@ -28,7 +28,7 @@ function getNeighbors(node, grid) {
 	return neighbors.filter((neighbor) => !neighbor.isVisited);
 }
 
-function isNeighborVisited(neighbor, unvisitedNodes) {
+function isVisited(neighbor, unvisitedNodes) {
 	for (const node of unvisitedNodes) {
 		if (node.row === neighbor.row && node.column === neighbor.column) {
 			return false;
