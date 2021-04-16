@@ -54,7 +54,8 @@ export default ({
 			title: "Random walk",
 			description:
 				"Random walk is unweighted and does not guarantee the shortest path. This algorithm works by repeatedly choosing and exploring neighbor nodes at random or based on a probability distribution.",
-			funFact: "Fun fact: Random walks have applications in nearly every major field of science.",
+			funFact:
+				"Fun fact: Random walks have applications in nearly every major field of science.",
 			url: "https://en.wikipedia.org/wiki/Random_walk",
 		},
 		{
@@ -62,7 +63,8 @@ export default ({
 			title: "Depth-first search",
 			description:
 				"Depth-first search is unweighted and does not guarantee the shortest path. This algorithm works by exploring as far as possible along a given path and then backtracking until it finds an unexplored path to be explored.",
-			funFact: "Fun fact: Depth-first search is inefficient at pathfinding because of its dreadful meandering!",
+			funFact:
+				"Fun fact: Depth-first search is inefficient at pathfinding because of its dreadful meandering!",
 			url: "https://en.wikipedia.org/wiki/Depth-first_search",
 		},
 		{
@@ -70,7 +72,8 @@ export default ({
 			title: "Breadth-first search",
 			description:
 				"Breadth-first search is unweighted and guarantees the shortest path. This algorithm works by exploring all neighbor nodes at the present depth prior to exploring nodes at succeeding depth.",
-			funFact: "Fun fact: Breadth-first search was invented in 1945 by computer scientist Konrad Zuse, in his rejected Ph.D. thesis.",
+			funFact:
+				"Fun fact: Breadth-first search was invented in 1945 by computer scientist Konrad Zuse, in his rejected Ph.D. thesis.",
 			url: "https://en.wikipedia.org/wiki/Breadth-first_search",
 		},
 		{
@@ -78,7 +81,8 @@ export default ({
 			title: "Greedy best-first search",
 			description:
 				"Greedy best-first search is unweighted and does not guarantee the shortest path. This algorithm works by always choosing the lowest-cost path through a combination of depth-first search and breadth-first search algorithms.",
-			funFact: "Fun fact: Greedy best-first search is not optimal for pathfinding because it can get stuck in infinite loops.",
+			funFact:
+				"Fun fact: Greedy best-first search is not optimal for pathfinding because it can get stuck in infinite loops.",
 			url: "https://en.wikipedia.org/wiki/Best-first_search",
 		},
 		{
@@ -86,7 +90,8 @@ export default ({
 			title: "Dijkstra’s algorithm",
 			description:
 				"Dijkstra’s algorithm is weighted and guarantees the shortest path. This algorithm works by constructing a lowest-cost path tree from the set of nodes that have the smallest distance from the START to the FINISH node.",
-			funFact: "Fun fact: Computer scientist Edsger Dijkstra invented his famous algorithm in roughly twenty minutes at a café.",
+			funFact:
+				"Fun fact: Computer scientist Edsger Dijkstra invented his famous algorithm in roughly twenty minutes at a café.",
 			url: "https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm",
 		},
 		{
@@ -94,15 +99,16 @@ export default ({
 			title: "A* search",
 			description:
 				"A* (A-star) search is weighted and guarantees the shortest path. Like Dijkstra’s algorithm, A* constructs a lowest-cost path tree. However, A* uses heuristics that reduce computation time by planning each step with informed decisions.",
-			funFact: "Fun fact: Google Maps uses an A* search coupled with collections of highly advanced heuristics.",
+			funFact:
+				"Fun fact: Google Maps uses an A* search coupled with collections of highly advanced heuristics.",
 			url: "https://en.wikipedia.org/wiki/A*_search_algorithm",
 		},
 	],
-	linkText = "Learn more",
 	heading = "Meet the algorithms.",
 	description = "All the algorithms on this visualizer are adapted to a two-dimensional grid, where ninety degree turns and movements from one node to another have a cost of one. Furthermore, algorithms are either weighted or unweighted, and their weightedness dictates consideration of the afore mentioned costs. What’s more, not all algorithms guarantee the shortest path, so be sure to read their descriptions to understand capabilities.",
 	imageContainerCss = null,
 	imageCss = null,
+	linkText = "Learn more",
 }) => {
 	return (
 		<Container css={tw`mb-20 lg:mb-24`}>
