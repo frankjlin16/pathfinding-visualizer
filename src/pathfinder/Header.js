@@ -4,7 +4,10 @@ import styled from "styled-components";
 import tw from "twin.macro";
 import { Container, ContentWithPaddingXl } from "components/misc/Layouts.js";
 import { SectionDescription } from "components/misc/Typography.js";
-import { SectionHeading, Subheading as SubheadingBase } from "components/misc/Headings.js";
+import {
+	SectionHeading,
+	Subheading as SubheadingBase,
+} from "components/misc/Headings.js";
 import { ReactComponent as SvgDecoratorBlob } from "images/svg-decorator-blob-6.svg";
 
 const HeaderContainer = tw.div`w-full flex flex-col items-center`;
