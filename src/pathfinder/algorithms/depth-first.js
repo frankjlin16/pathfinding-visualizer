@@ -4,8 +4,8 @@ export function depthFirst(grid, startNode, finishNode) {
 	unvisitedNodes.push(startNode);
 	while (unvisitedNodes.length) {
 		let closestNode = unvisitedNodes.shift();
+		if (closestNode === finishNode) return visitedNodes;
 		if (!closestNode.isWall) {
-			if (closestNode === finishNode) return visitedNodes;
 			closestNode.isVisited = true;
 			visitedNodes.push(closestNode);
 			const neighbors = getNeighbors(closestNode, grid);
