@@ -525,19 +525,19 @@ class Pathfinder extends Component {
 									<Button onClick={() => this.visualize("aStar")}>A*</Button>
 									<Button
 										onClick={() => this.clearGrid()}
-										css={tw`bg-red-500 hover:bg-red-600`}
+										css={tw`text-red-500 hover:text-red-600 bg-gray-100 hover:bg-gray-200`}
 									>
 										CLEAR GRID
 									</Button>
 									<Button
 										onClick={() => this.clearWalls()}
-										css={tw`bg-secondary-500 hover:bg-secondary-600`}
+										css={tw`text-secondary-500 hover:text-secondary-600 bg-gray-100 hover:bg-gray-200`}
 									>
 										CLEAR WALLS
 									</Button>
 									<Button
 										onClick={() => this.visualize("maze")}
-										css={tw`text-primary-500 hover:text-primary-600 bg-gray-100 hover:bg-gray-200`}
+										css={tw`bg-secondary-500 hover:bg-secondary-600`}
 									>
 										GENERATE MAZE
 									</Button>
