@@ -354,7 +354,7 @@ class Pathfinder extends Component {
 
 	toggleWall(grid, row, column) {
 		let node = grid[row][column];
-		const className = document.getElementById(`node-${node.row}-${node.column}`)
+		const className = document.getElementById(`node-${row}-${column}`)
 			.className;
 		if (className !== "node start" && className !== "node finish") {
 			document.getElementById(`node-${node.row}-${node.column}`).className =
