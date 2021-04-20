@@ -59,9 +59,9 @@ const DecoratorCircle4 = tw(
 
 const rows = 15;
 let columns;
-let START_NODE_ROW = 1;
+let START_NODE_ROW = 0;
 let START_NODE_COLUMN;
-let FINISH_NODE_ROW = rows - 2;
+let FINISH_NODE_ROW = rows - 1;
 let FINISH_NODE_COLUMN;
 let offsetWidth;
 let speed;
@@ -81,14 +81,14 @@ class Pathfinder extends Component {
 			isFinish: false,
 			isMouseDown: false,
 		};
-		this.actions = React.createRef();
+		this.buttons = React.createRef();
 		this.updateGrid = this.updateGrid.bind(this);
 	}
 
 	componentDidMount() {
-		columns = Math.floor(this.actions.current.offsetWidth / desiredSize);
-		START_NODE_COLUMN = 1;
-		FINISH_NODE_COLUMN = columns - 2;
+		columns = Math.floor(this.buttons.current.offsetWidth / desiredSize);
+		START_NODE_COLUMN = 0;
+		FINISH_NODE_COLUMN = columns - 1;
 		this.updateGrid();
 		window.addEventListener("resize", this.updateGrid);
 		document.getElementById("grid").addEventListener("click", () => {});
@@ -99,13 +99,13 @@ class Pathfinder extends Component {
 	}
 
 	updateGrid() {
-		if (offsetWidth !== this.actions.current.offsetWidth) {
-			offsetWidth = this.actions.current.offsetWidth;
-			speed = (100 / this.actions.current.offsetWidth) * 200;
-			columns = Math.floor(this.actions.current.offsetWidth / desiredSize);
+		if (offsetWidth !== this.buttons.current.offsetWidth) {
+			offsetWidth = this.buttons.current.offsetWidth;
+			speed = (100 / this.buttons.current.offsetWidth) * 200;
+			columns = Math.floor(this.buttons.current.offsetWidth / desiredSize);
 			if (START_NODE_COLUMN >= columns) START_NODE_COLUMN = columns - 1;
 			if (FINISH_NODE_COLUMN >= columns) FINISH_NODE_COLUMN = columns - 1;
-			computedSize = (this.actions.current.offsetWidth - 2) / columns;
+			computedSize = (this.buttons.current.offsetWidth - 2) / columns;
 			this.clearWalls();
 			const grid = this.createGrid();
 			this.setState({ grid });
@@ -144,37 +144,46 @@ class Pathfinder extends Component {
 		const startNode = grid[START_NODE_ROW][START_NODE_COLUMN];
 		const finishNode = grid[FINISH_NODE_ROW][FINISH_NODE_COLUMN];
 		let visitedNodes;
-		let random = false;
+		let path;
 		switch (algorithm) {
 			case "randomWalk":
 				visitedNodes = randomWalk(grid, startNode, finishNode);
-				random = true;
+				this.animateAlgorithm(visitedNodes, [0]);
 				break;
 			case "depthFirst":
 				visitedNodes = depthFirst(grid, startNode, finishNode);
+				path = this.getPath(finishNode);
+				this.animateAlgorithm(visitedNodes, path);
 				break;
 			case "breadthFirst":
 				visitedNodes = breadthFirst(grid, startNode, finishNode);
+				path = this.getPath(finishNode);
+				this.animateAlgorithm(visitedNodes, path);
 				break;
 			case "greedyBest":
 				visitedNodes = greedyBest(grid, startNode, finishNode);
+				path = this.getPath(finishNode);
+				this.animateAlgorithm(visitedNodes, path);
 				break;
 			case "dijkstra":
 				visitedNodes = dijkstra(grid, startNode, finishNode);
+				path = this.getPath(finishNode);
+				this.animateAlgorithm(visitedNodes, path);
 				break;
 			case "aStar":
 				visitedNodes = aStar(grid, startNode, finishNode);
+				path = this.getPath(finishNode);
+				this.animateAlgorithm(visitedNodes, path);
 				break;
 			case "maze":
-				visitedNodes = maze();
+				this.clearWalls();
+				this.setRunning(true);
+				const walls = maze(grid, startNode, finishNode);
+				this.animateMaze(walls);
 				break;
 			default:
 				break;
 		}
-		let path;
-		if (random) path = [0];
-		else path = this.getPath(finishNode);
-		this.animate(visitedNodes, path);
 		if (isMobile) {
 			document.getElementById("grid").scrollIntoView({ behavior: "smooth" });
 		}
@@ -233,7 +242,7 @@ class Pathfinder extends Component {
 		return path;
 	}
 
-	animate(visitedNodes, path) {
+	animateAlgorithm(visitedNodes, path) {
 		for (let i = 0; i <= visitedNodes.length; ++i) {
 			if (i === visitedNodes.length) {
 				timers.push(
@@ -282,6 +291,26 @@ class Pathfinder extends Component {
 						this.setRunning(false);
 					}
 				}, speed * 2 * i)
+			);
+		}
+	}
+
+	animateMaze(walls) {
+		for (let i = 0; i < walls.length; ++i) {
+			timers.push(
+				setTimeout(() => {
+					const wall = walls[i];
+					const node = this.state.grid[wall[0]][wall[1]];
+					const newGrid = this.toggleWall(
+						this.state.grid,
+						node.row,
+						node.column
+					);
+					this.setState({ grid: newGrid });
+					if (i + 1 === walls.length) {
+						this.setRunning(false);
+					}
+				}, speed * i)
 			);
 		}
 	}
@@ -475,7 +504,7 @@ class Pathfinder extends Component {
 								);
 							})}
 						</div>
-						<ButtonsBackgroundContainer ref={this.actions}>
+						<ButtonsBackgroundContainer ref={this.buttons}>
 							<Row>
 								<ButtonsContainer>
 									<Button onClick={() => this.visualize("randomWalk")}>
