@@ -3,7 +3,7 @@ export function breadthFirst(grid, startNode, finishNode) {
 	const unvisitedNodes = [];
 	unvisitedNodes.push(startNode);
 	while (unvisitedNodes.length) {
-		let closestNode = unvisitedNodes.shift();
+		const closestNode = unvisitedNodes.shift();
 		if (closestNode === finishNode) return visitedNodes;
 		if (!closestNode.isWall) {
 			closestNode.isVisited = true;
