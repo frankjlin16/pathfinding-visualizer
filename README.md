@@ -49,9 +49,9 @@ Breadth-first search is unweighted and guarantees the shortest path. This algori
 
 ### Greedy best-first search
 
-Greedy best-first search is unweighted and does not guarantee the shortest path. This algorithm works by always choosing the lowest-cost path through a combination of depth-first search and breadth-first search algorithms.
+Greedy best-first search is unweighted and does not guarantee the shortest path. This algorithm works by always exploring the most promising node according to its heuristic, which estimates the proximity of the `FINISH` node.
 
-*Fun fact:* Greedy best-first search is not optimal for pathfinding because it can get stuck in infinite loops.
+*Fun fact:* Greedy best-first search uses less memory than A* but does not provide the same optimality guarantee.
 
 ### Dijkstra's algorithm
 
@@ -61,7 +61,7 @@ Dijkstra’s algorithm is weighted and guarantees the shortest path. This algori
 
 ### A* search
 
-A* (A-star) search is weighted and guarantees the shortest path. Like Dijkstra’s algorithm, A* constructs a lowest-cost path tree. However, A* uses heuristics that reduce computation time by planning each step with informed decisions.
+A* (A-star) search is weighted and guarantees the shortest path. Like Dijkstra’s algorithm, A* constructs a lowest-cost path tree. However, A* guarantees optimality by using heuristics in conjunction with its lowest-cost path tree.
 
 *Fun fact:* Google Maps uses an A* search coupled with collections of highly advanced heuristics.
 
