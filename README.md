@@ -49,7 +49,7 @@ Breadth-first search is unweighted and guarantees the shortest path. This algori
 
 ### Greedy best-first search
 
-Greedy best-first search is unweighted and does not guarantee the shortest path. This algorithm works by always exploring the most promising node according to its heuristic, which estimates the proximity of the `FINISH` node.
+Greedy best-first search is unweighted and does not guarantee the shortest path. This algorithm works by always exploring the most promising node according to heuristics, which estimate closeness of the `FINISH` node.
 
 *Fun fact:* Greedy best-first search uses less memory than A* but does not provide the same optimality guarantee.
 
