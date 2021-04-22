@@ -11,7 +11,6 @@ import { Subheading as SubheadingBase } from "components/misc/Headings.js";
 import { ReactComponent as SvgDecoratorBlob } from "images/svg-decorator-blob-7.svg";
 import { ReactComponent as SvgDecoratorCircle } from "images/svg-decorator-blob-9.svg";
 import { css } from "styled-components/macro"; //eslint-disable-line
-import { isMobile } from "react-device-detect";
 
 import Node from "./Node";
 import { aStar } from "./algorithms/a-star";
@@ -57,11 +56,11 @@ const DecoratorCircle4 = tw(
 	SvgDecoratorCircle
 )`absolute top-0 left-0 w-80 h-80 transform -translate-x-20 -translate-y-64 text-primary-500 opacity-5`;
 
-const rows = 15;
+const rows = 20;
 let columns;
-let START_NODE_ROW = 0;
+let START_NODE_ROW = 1;
 let START_NODE_COLUMN;
-let FINISH_NODE_ROW = rows - 1;
+let FINISH_NODE_ROW = rows - 2;
 let FINISH_NODE_COLUMN;
 let offsetWidth;
 let speed;
@@ -87,8 +86,8 @@ class Pathfinder extends Component {
 
 	componentDidMount() {
 		columns = Math.floor(this.buttons.current.offsetWidth / desiredSize);
-		START_NODE_COLUMN = 0;
-		FINISH_NODE_COLUMN = columns - 1;
+		START_NODE_COLUMN = 1;
+		FINISH_NODE_COLUMN = columns - 2;
 		this.updateGrid();
 		window.addEventListener("resize", this.updateGrid);
 		document.getElementById("grid").addEventListener("click", () => {});
@@ -184,7 +183,7 @@ class Pathfinder extends Component {
 			default:
 				break;
 		}
-		if (isMobile) {
+		if (document.getElementById("grid").getBoundingClientRect().top < 0) {
 			document.getElementById("grid").scrollIntoView({ behavior: "smooth" });
 		}
 	}
