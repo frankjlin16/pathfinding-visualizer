@@ -27,7 +27,7 @@ Drag and drop the `START` and `FINISH` nodes to your desired location and create
 
 ## Algorithms
 
-All the algorithms on this visualizer are adapted to a two-dimensional grid, where ninety degree turns and movements from one node to another have a cost of one. Furthermore, algorithms are either weighted or unweighted, and their weightedness dictates consideration of the afore mentioned costs. What’s more, not all algorithms guarantee the shortest path, so be sure to read their descriptions to understand capabilities.
+All the algorithms on this visualizer are adapted to a two-dimensional grid, where ninety degree turns and movements from one node to another have a cost of one. Furthermore, algorithms are either weighted or unweighted, and their weightedness dictates consideration of the aforedescribed costs. What’s more, not all algorithms guarantee the shortest path, so be sure to read their descriptions to understand capabilities.
 
 ### Random walk
 
@@ -39,31 +39,31 @@ Random walk is unweighted and does not guarantee the shortest path. This algorit
 
 Depth-first search is unweighted and does not guarantee the shortest path. This algorithm works by exploring as far as possible along a given path and then backtracking until it finds an unexplored path to be explored.
 
-`Fun fact: Depth-first search is inefficient at pathfinding because of its dreadful meandering!`
+**Fun fact:** Depth-first search is inefficient at pathfinding because of its dreadful meandering!
 
 ### Breadth-first search
 
 Breadth-first search is unweighted and guarantees the shortest path. This algorithm works by exploring all neighbor nodes at the present depth prior to exploring nodes at succeeding depth.
 
-`Fun fact: Breadth-first search was invented in 1945 by computer scientist Konrad Zuse, in his rejected Ph.D. thesis.`
+**Fun fact:** Breadth-first search was invented in 1945 by computer scientist Konrad Zuse, in his rejected Ph.D. thesis.
 
 ### Greedy best-first search
 
 Greedy best-first search is unweighted and does not guarantee the shortest path. This algorithm works by always choosing the lowest-cost path through a combination of depth-first search and breadth-first search algorithms.
 
-`Fun fact: Greedy best-first search is not optimal for pathfinding because it can get stuck in infinite loops.`
+**Fun fact:** Greedy best-first search is not optimal for pathfinding because it can get stuck in infinite loops.
 
 ### Dijkstra's algorithm
 
 Dijkstra’s algorithm is weighted and guarantees the shortest path. This algorithm works by constructing a lowest-cost path tree from the set of nodes that have the smallest distance from the `START` to the `FINISH` node.
 
-`Fun fact: Computer scientist Edsger Dijkstra invented his famous algorithm in roughly twenty minutes at a café.`
+**Fun fact:** Computer scientist Edsger Dijkstra invented his famous algorithm in roughly twenty minutes at a café.
 
 ### A* search
 
 A* (A-star) search is weighted and guarantees the shortest path. Like Dijkstra’s algorithm, A* constructs a lowest-cost path tree. However, A* uses heuristics that reduce computation time by planning each step with informed decisions.
 
-`Fun fact: Google Maps uses an A* search coupled with collections of highly advanced heuristics.`
+**Fun fact:** Google Maps uses an A* search coupled with collections of highly advanced heuristics.
 
 ## Credits
 
