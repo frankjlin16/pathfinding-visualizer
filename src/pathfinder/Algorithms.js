@@ -80,9 +80,9 @@ export default ({
 			imageSrc: mapIcon4,
 			title: "Greedy best-first search",
 			description:
-				"Greedy best-first search is unweighted and does not guarantee the shortest path. This algorithm works by always choosing the lowest-cost path through a combination of depth-first search and breadth-first search algorithms.",
+				"Greedy best-first search is unweighted and does not guarantee the shortest path. This algorithm works by always exploring the most promising node according to heuristics, which estimate closeness of the FINISH node.",
 			funFact:
-				"Fun fact: Greedy best-first search is not optimal for pathfinding because it can get stuck in infinite loops.",
+				"Fun fact: Greedy best-first search uses less memory than A* but does not provide the same optimality guarantee.",
 			url: "https://en.wikipedia.org/wiki/Best-first_search",
 		},
 		{
@@ -98,14 +98,14 @@ export default ({
 			imageSrc: mapIcon6,
 			title: "A* search",
 			description:
-				"A* (A-star) search is weighted and guarantees the shortest path. Like Dijkstra’s algorithm, A* constructs a lowest-cost path tree. However, A* uses heuristics that reduce computation time by planning each step with informed decisions.",
+				"A* (A-star) search is weighted and guarantees the shortest path. Like Dijkstra’s algorithm, A* constructs a lowest-cost path tree. However, A* guarantees optimality by using heuristics in conjunction with its lowest-cost path tree.",
 			funFact:
 				"Fun fact: Google Maps uses an A* search coupled with collections of highly advanced heuristics.",
 			url: "https://en.wikipedia.org/wiki/A*_search_algorithm",
 		},
 	],
 	heading = "Meet the algorithms.",
-	description = "All the algorithms on this visualizer are adapted to a two-dimensional grid, where ninety degree turns and movements from one node to another have a cost of one. Furthermore, algorithms are either weighted or unweighted, and their weightedness dictates consideration of the afore mentioned costs. What’s more, not all algorithms guarantee the shortest path, so be sure to read their descriptions to understand capabilities.",
+	description = "All the algorithms on this visualizer are adapted to a two-dimensional grid, where ninety degree turns and movements from one node to another have a cost of one. Furthermore, algorithms are either weighted or unweighted, and their weightedness dictates consideration of the aforementioned costs. What’s more, not all algorithms guarantee the shortest path, so be sure to read their descriptions to understand capabilities.",
 	imageContainerCss = null,
 	imageCss = null,
 	linkText = "Learn more",
