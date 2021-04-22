@@ -36,7 +36,7 @@ Random walk is unweighted and does not guarantee the shortest path. This algorit
 
 *Fun fact:* Random walks have applications in nearly every major field of science.
 
-### • Depth-first search
+### > Depth-first search
 
 Depth-first search is unweighted and does not guarantee the shortest path. This algorithm works by exploring as far as possible along a given path and then backtracking until it finds an unexplored path to be explored.
 
