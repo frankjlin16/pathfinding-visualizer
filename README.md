@@ -33,7 +33,7 @@ All the algorithms on this visualizer are adapted to a two-dimensional grid, whe
 
 Random walk is unweighted and does not guarantee the shortest path. This algorithm works by repeatedly choosing and exploring neighbor nodes at random or based on a probability distribution.
 
-Fun fact:| Random walks have applications in nearly every major field of science.
+Fun fact: Random walks have applications in nearly every major field of science.
 
 ### Depth-first search
 
