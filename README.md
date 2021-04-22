@@ -36,31 +36,31 @@ Random walk is unweighted and does not guarantee the shortest path. This algorit
 
 *Fun fact:* Random walks have applications in nearly every major field of science.
 
-### > Depth-first search
+### > [Depth-first search](https://en.wikipedia.org/wiki/Depth-first_search)
 
 Depth-first search is unweighted and does not guarantee the shortest path. This algorithm works by exploring as far as possible along a given path and then backtracking until it finds an unexplored path to be explored.
 
 *Fun fact:* Depth-first search is inefficient at pathfinding because of its dreadful meandering!
 
-### > Breadth-first search
+### > [Breadth-first search](https://en.wikipedia.org/wiki/Breadth-first_search)
 
 Breadth-first search is unweighted and guarantees the shortest path. This algorithm works by exploring all neighbor nodes at the present depth prior to exploring nodes at succeeding depth.
 
 *Fun fact:* Breadth-first search was invented in 1945 by computer scientist Konrad Zuse, in his rejected Ph.D. thesis.
 
-### > Greedy best-first search
+### > [Greedy best-first search](https://en.wikipedia.org/wiki/Best-first_search)
 
 Greedy best-first search is unweighted and does not guarantee the shortest path. This algorithm works by always exploring the most promising node according to heuristics, which estimate closeness of the `FINISH` node.
 
 *Fun fact:* Greedy best-first search uses less memory than A* but does not provide the same optimality guarantee.
 
-### > Dijkstra's algorithm
+### > [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)
 
 Dijkstra’s algorithm is weighted and guarantees the shortest path. This algorithm works by constructing a lowest-cost path tree from the set of nodes that have the smallest distance from the `START` to the `FINISH` node.
 
 *Fun fact:* Computer scientist Edsger Dijkstra invented his famous algorithm in roughly twenty minutes at a café.
 
-### > A* search
+### > [A* search](https://en.wikipedia.org/wiki/A*_search_algorithm)
 
 A* (A-star) search is weighted and guarantees the shortest path. Like Dijkstra’s algorithm, A* constructs a lowest-cost path tree. However, A* guarantees optimality by using heuristics in conjunction with its lowest-cost path tree.
 
