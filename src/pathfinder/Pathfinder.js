@@ -523,10 +523,10 @@ class Pathfinder extends Component {
 									</Button>
 									<Button onClick={() => this.visualize("aStar")}>A*</Button>
 									<Button
-										onClick={() => this.clearGrid()}
-										css={tw`text-red-500 hover:text-red-600 bg-gray-100 hover:bg-gray-200`}
+										onClick={() => this.visualize("maze")}
+										css={tw`bg-secondary-500 hover:bg-secondary-600`}
 									>
-										CLEAR GRID
+										GENERATE MAZE
 									</Button>
 									<Button
 										onClick={() => this.clearWalls()}
@@ -535,10 +535,10 @@ class Pathfinder extends Component {
 										CLEAR WALLS
 									</Button>
 									<Button
-										onClick={() => this.visualize("maze")}
-										css={tw`bg-secondary-500 hover:bg-secondary-600`}
+										onClick={() => this.clearGrid()}
+										css={tw`text-red-500 hover:text-red-600 bg-gray-100 hover:bg-gray-200`}
 									>
-										GENERATE MAZE
+										CLEAR GRID
 									</Button>
 								</ButtonsContainer>
 							</Row>
