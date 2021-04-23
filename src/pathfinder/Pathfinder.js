@@ -85,9 +85,9 @@ class Pathfinder extends Component {
 	}
 
 	componentDidMount() {
-		columns = Math.floor(this.buttons.current.offsetWidth / desiredSize);
+		columns = Math.ceil(this.buttons.current.offsetWidth / desiredSize);
 		START_NODE_COLUMN = 1;
-		FINISH_NODE_COLUMN = columns - 1;
+		FINISH_NODE_COLUMN = columns - 2;
 		this.updateGrid();
 		window.addEventListener("resize", this.updateGrid);
 		document.getElementById("grid").addEventListener("click", () => {});
