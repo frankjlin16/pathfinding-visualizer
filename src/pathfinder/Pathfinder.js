@@ -56,7 +56,7 @@ const DecoratorCircle4 = tw(
 	SvgDecoratorCircle
 )`absolute top-0 left-0 w-80 h-80 transform -translate-x-20 -translate-y-64 text-primary-500 opacity-5`;
 
-const rows = 20;
+const rows = 15;
 let columns;
 let START_NODE_ROW = 1;
 let START_NODE_COLUMN;
@@ -64,7 +64,7 @@ let FINISH_NODE_ROW = rows - 2;
 let FINISH_NODE_COLUMN;
 let offsetWidth;
 let speed;
-const desiredSize = 40;
+const desiredSize = 30;
 let computedSize;
 let isRunning = false;
 let timers = [];
@@ -87,7 +87,7 @@ class Pathfinder extends Component {
 	componentDidMount() {
 		columns = Math.floor(this.buttons.current.offsetWidth / desiredSize);
 		START_NODE_COLUMN = 1;
-		FINISH_NODE_COLUMN = columns - 2;
+		FINISH_NODE_COLUMN = columns - 1;
 		this.updateGrid();
 		window.addEventListener("resize", this.updateGrid);
 		document.getElementById("grid").addEventListener("click", () => {});
@@ -101,7 +101,7 @@ class Pathfinder extends Component {
 		if (offsetWidth !== this.buttons.current.offsetWidth) {
 			offsetWidth = this.buttons.current.offsetWidth;
 			speed = (100 / this.buttons.current.offsetWidth) * 200;
-			columns = Math.floor(this.buttons.current.offsetWidth / desiredSize);
+			columns = Math.ceil(this.buttons.current.offsetWidth / desiredSize);
 			if (START_NODE_COLUMN >= columns) START_NODE_COLUMN = columns - 1;
 			if (FINISH_NODE_COLUMN >= columns) FINISH_NODE_COLUMN = columns - 1;
 			computedSize = (this.buttons.current.offsetWidth - 2) / columns;
