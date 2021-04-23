@@ -299,12 +299,7 @@ class Pathfinder extends Component {
 			timers.push(
 				setTimeout(() => {
 					const wall = walls[i];
-					const node = this.state.grid[wall[0]][wall[1]];
-					const newGrid = this.toggleWall(
-						this.state.grid,
-						node.row,
-						node.column
-					);
+					const newGrid = this.toggleWall(this.state.grid, wall[0], wall[1]);
 					this.setState({ grid: newGrid });
 					if (i + 1 === walls.length) {
 						this.setRunning(false);
