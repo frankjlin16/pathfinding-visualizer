@@ -115,9 +115,8 @@ class Pathfinder extends Component {
 		const grid = [];
 		for (let row = 0; row < rows; ++row) {
 			const currentRow = [];
-			for (let column = 0; column < columns; ++column) {
+			for (let column = 0; column < columns; ++column)
 				currentRow.push(this.createNode(row, column));
-			}
 			grid.push(currentRow);
 		}
 		return grid;
@@ -183,9 +182,8 @@ class Pathfinder extends Component {
 			default:
 				break;
 		}
-		if (document.getElementById("grid").getBoundingClientRect().top < 0) {
+		if (document.getElementById("grid").getBoundingClientRect().top < 0)
 			document.getElementById("grid").scrollIntoView({ behavior: "smooth" });
-		}
 	}
 
 	clearGrid() {
@@ -203,10 +201,9 @@ class Pathfinder extends Component {
 					className !== "node start" &&
 					className !== "node finish" &&
 					className !== "node wall"
-				) {
+				)
 					document.getElementById(`node-${node.row}-${node.column}`).className =
 						"node";
-				}
 			}
 		}
 	}
@@ -286,9 +283,7 @@ class Pathfinder extends Component {
 						document.getElementById(
 							`node-${node.row}-${node.column}`
 						).className = "node path";
-					if (i + 1 === path.length) {
-						this.setRunning(false);
-					}
+					if (i + 1 === path.length) this.setRunning(false);
 				}, speed * 2 * i)
 			);
 		}
@@ -301,9 +296,7 @@ class Pathfinder extends Component {
 					const wall = walls[i];
 					const newGrid = this.toggleWall(this.state.grid, wall[0], wall[1]);
 					this.setState({ grid: newGrid });
-					if (i + 1 === walls.length) {
-						this.setRunning(false);
-					}
+					if (i + 1 === walls.length) this.setRunning(false);
 				}, speed * i)
 			);
 		}
@@ -319,13 +312,12 @@ class Pathfinder extends Component {
 			});
 			const className = document.getElementById(`node-${row}-${column}`)
 				.className;
-			if (className === "node start") {
-				this.setState({ isStart: true });
-			} else if (className === "node finish") {
+			if (className === "node start") this.setState({ isStart: true });
+			else if (className === "node finish")
 				this.setState({
 					isFinish: true,
 				});
-			} else {
+			else {
 				const newGrid = this.toggleWall(this.state.grid, row, column);
 				this.setState({ grid: newGrid });
 			}
@@ -370,9 +362,8 @@ class Pathfinder extends Component {
 	}
 
 	handleMouseUp() {
-		if (!isRunning) {
+		if (!isRunning)
 			this.setState({ isStart: false, isFinish: false, isMouseDown: false });
-		}
 	}
 
 	toggleWall(grid, row, column) {
