@@ -11,7 +11,7 @@ I built this web-app because I was curious how map applications worked and wante
 1.	Six assorted pathfinding algorithms
 2.	One procedural maze generation algorithm
 3.	Fully responsive design with [Tailwind CSS](https://github.com/tailwindlabs/tailwindcss)
-4.	Scaling, viewport-dependent visualization speed
+4.	Scaling viewport-dependent visualization speed
 5.	Comprehensive user input error handling
 6.	Pixel-perfect adapting node dimensions
 7.	Drag/droppable start and finish nodes
