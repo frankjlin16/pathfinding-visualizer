@@ -15,7 +15,7 @@ I built this web-app because I was curious how map applications worked and wante
 5.	Comprehensive user input error handling
 6.	Pixel-perfect adapting node dimensions
 7.	Drag/droppable start and finish nodes
-8.	Wall node creation for extended control
+8.	Wall node creation for custom obstacles
 9.	Interactivity with touch/pen input support
 10.	Optimized for low-end mobile devices
 
