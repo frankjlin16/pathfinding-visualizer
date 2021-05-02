@@ -12,7 +12,7 @@ I built this web-app because I was curious how map applications worked and wante
 2.	One procedural maze generation algorithm
 3.	Fully responsive design with [Tailwind CSS](https://github.com/tailwindlabs/tailwindcss)
 4.	Pixel-perfect adapting node dimensions
-5.	Scaling viewport-dependent visualization speed
+5.	Scaling, viewport-dependent visualization speed
 6.	Comprehensive user input error handling
 7.	Drag/droppable start and finish nodes
 8.	Wall node creation for extended control
