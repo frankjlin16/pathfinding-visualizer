@@ -2,10 +2,6 @@
 
 This web-app visualizes algorithms that seek to find the shortest path between two points and employs recursive division to procedurally generate maze structures. Consequently, maze structures act as navigational obstacles for the pathfinding algorithms, somewhat simulating a map application navigating the obstacles of a complex highway system or puzzling urban sprawls.
 
-## Motivation
-
-I built this web-app because I was curious how map applications worked and wanted to visualize their algorithms. Also, this project was appreciably inspired by Clément Mihailescu’s entertaining and informative [YouTube](https://www.youtube.com/channel/UCaO6VoaYJv4kS-TQO_M-N_g) channel.
-
 ## Features
 
 1.	Six assorted pathfinding algorithms
@@ -71,8 +67,6 @@ A* (A-star) search is weighted and guarantees the shortest path. Like Dijkstra�
 * [Treact](https://treact.owaiskhan.me) by Owais Khan
 * [Twin](https://github.com/ben-rogerson/twin.macro) by Ben Rogerson and contributors
 * [iconmonstr](https://iconmonstr.com) by Alexander Kahlkopf
-
-Project inspired by [Clément Mihailescu](https://github.com/clementmihailescu)
 
 ## License
 
