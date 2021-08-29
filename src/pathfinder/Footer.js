@@ -5,7 +5,7 @@ import tw from "twin.macro";
 import { Container as ContainerBase } from "components/misc/Layouts.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { css } from "styled-components/macro"; //eslint-disable-line
-import { faCloud } from "@fortawesome/free-solid-svg-icons";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 const Container = tw(ContainerBase)`bg-gray-900 text-gray-100 -mx-8 -mb-8`;
@@ -40,7 +40,7 @@ export default () => {
 					</LogoContainer>
 					<SocialLinksContainer>
 						<SocialLink href="https://alekbroman.com">
-							<FontAwesomeIcon icon={faCloud} />
+							<FontAwesomeIcon icon={faUser} />
 						</SocialLink>
 						<SocialLink href="https://www.linkedin.com/in/alekbroman">
 							<FontAwesomeIcon icon={faLinkedin} />
