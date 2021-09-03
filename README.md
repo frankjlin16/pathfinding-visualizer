@@ -65,5 +65,5 @@ A* (A-star) search is weighted and guarantees the shortest path. Like Dijkstraâ€
 ## Credits
 
 * [Treact](https://treact.owaiskhan.me) by Owais Khan
-* [Twin](https://github.com/ben-rogerson/twin.macro) by Ben Rogerson and contributors
+* [Twin](https://github.com/ben-rogerson/twin.macro) by Ben Rogerson
 * [iconmonstr](https://iconmonstr.com) by Alexander Kahlkopf
